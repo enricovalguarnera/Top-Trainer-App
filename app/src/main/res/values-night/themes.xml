@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.TopTrainer" parent="Theme.MaterialComponents.Light">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/top_trainer_green_primary</item>
+        <item name="colorPrimaryVariant">@color/top_trainer_green_secondary</item>
+        <item name="colorOnPrimary">@color/white</item>  <!-- Colore Testi -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/top_trainer_green_secondary</item>
+        <item name="colorSecondaryVariant">@color/top_trainer_green_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

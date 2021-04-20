@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Top Trainer</string>
+    <string name="home_heading1">Trova</string>
+    <string name="home_heading2">l\'allenamento</string>
+    <string name="home_heading3">migliore</string>
+    <string name="home_heading4">per il tuo</string>
+    <string name="home_heading5">giocatore</string>
+    <string name="button_trova_allenamento">Trova allenamento</string>
+    <string name="button_elenco_allenamenti">Ultimi allenamneti</string>
+    <string name="text_view_player_name">Nome giocatore</string>
+
+    <!--    Training Activity     -->
+    <string name="button_next_label">Avanti</string>
+    <string name="button_back_label">Indietro</string>
+    <string name="button_allena_label">Allena</string>
+    <string name="title_activity_training_player_data">TrainingPlayerData</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
