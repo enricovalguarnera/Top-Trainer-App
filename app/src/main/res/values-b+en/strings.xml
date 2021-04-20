@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Top Trainer</string>
+    <string name="home_heading1">Find</string>
+    <string name="home_heading2">the best</string>
+    <string name="home_heading3">Training</string>
+    <string name="home_heading4">for yours</string>
+    <string name="home_heading5">player</string>
+    <string name="button_trova_allenamento">Find Training</string>
+    <string name="button_elenco_allenamenti">Last Training</string>
+    <string name="text_view_player_name">Player name</string>
+
+
+    <!--    Training Activity     -->
+    <string name="button_next_label">Next</string>
+    <string name="button_back_label">Back</string>
+    <string name="button_allena_label">Train</string>
+</resources>
