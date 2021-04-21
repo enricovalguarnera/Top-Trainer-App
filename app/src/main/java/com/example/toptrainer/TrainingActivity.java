@@ -115,7 +115,13 @@ public class TrainingActivity extends AppCompatActivity {
 
         @Override
         public Fragment createFragment(int position) {
-            return new TrainingAbilityFragment();
+            switch (position) {
+                case 0: return TrainingPlayerDataFragment.newInstance("Fragment Player Data","");
+                case 1: return TrainingAbilityFragment.newInstance("Fragment Ability 1", "");
+                case 2: return TrainingAbilityFragment.newInstance("Fragment Ability 2", "");
+                case 3: return TrainingAbilityFragment.newInstance("Fragment Ability 3", "");
+                default: return TrainingAbilityFragment.newInstance("Default","");
+            }
         }
 
         @Override
