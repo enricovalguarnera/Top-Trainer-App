@@ -1,5 +1,8 @@
 <resources>
+    <!--  Common  -->
     <string name="app_name">Top Trainer</string>
+
+    <!--    Main Activity   -->
     <string name="home_heading1">Trova</string>
     <string name="home_heading2">l\'allenamento</string>
     <string name="home_heading3">migliore</string>
@@ -13,15 +16,25 @@
     <string name="button_next_label">Avanti</string>
     <string name="button_back_label">Indietro</string>
     <string name="button_allena_label">Allena</string>
-    <string name="title_activity_training_player_data">TrainingPlayerData</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  TrainingPlayerDataFragment Fragment  -->
+    <string name="heading_player_data_fragment">Dati giocatore</string>
+    <string name="info_message_player_data_fragment">Inserisci i dati principali del giocatore per la quale vuoi trovare l\'allenamento migliore.</string>
+    <string name="label_edit_text_player_name">Nome giocatore</string>
+<!--    <string name="placeholder_edit_text_player_name">Inserisci nome giocatore</string>-->
+    <string name="label_edit_text_player_age">Età</string>
+    <string name="label_select_player_roles">Ruoli</string>
+
+    <!--  TrainingAbility Fragment  -->
+    <string name="heading_ability_fragment">Inserisci abilità</string>
+    <string name="info_message_ability_fragment">Compila tutte le abilità per procedere alla ricerca dell\'allenamento migliore</string>
+    <string name="heading_ability_type">Compila tutte le abilità per procedere alla ricerca dell\'allenamento migliore</string>
+    <string name="ability_1">Passaggio</string>
+    <string name="ability_2">Dribbling</string>
+    <string name="ability_3">Cross</string>
+    <string name="ability_4">Tiro</string>
+    <string name="ability_5">Finalizzazione</string>
+
 </resources>

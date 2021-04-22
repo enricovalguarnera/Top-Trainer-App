@@ -1,5 +1,8 @@
 <resources>
+    <!--  Common  -->
     <string name="app_name">Top Trainer</string>
+
+    <!--    Main Activity   -->
     <string name="home_heading1">Find</string>
     <string name="home_heading2">the best</string>
     <string name="home_heading3">Training</string>
@@ -9,9 +12,29 @@
     <string name="button_elenco_allenamenti">Last Training</string>
     <string name="text_view_player_name">Player name</string>
 
-
     <!--    Training Activity     -->
     <string name="button_next_label">Next</string>
     <string name="button_back_label">Back</string>
     <string name="button_allena_label">Train</string>
+
+    <!--  TrainingPlayerDataFragment Fragment  -->
+    <!--  TrainingPlayerDataFragment Fragment  -->
+    <string name="heading_player_data_fragment">Player data</string>
+    <string name="info_message_player_data_fragment">Insert the main data of the player you want to find the best training for.</string>
+    <string name="label_edit_text_player_name">Player name</string>
+    <!--    <string name="placeholder_edit_text_player_name">Inserisci nome giocatore</string>-->
+    <string name="label_edit_text_player_age">Age</string>
+    <string name="label_select_player_roles">Roles</string>
+
+    <!--  TrainingAbility Fragment  -->
+    <!--  TrainingAbility Fragment  -->
+    <string name="heading_ability_fragment">Insert ability</string>
+    <string name="info_message_ability_fragment">Fill in all the skills to proceed in the search for the best training</string>
+    <string name="heading_ability_type">Forward</string>
+    <string name="ability_1">Pass</string>
+    <string name="ability_2">Dribbling</string>
+    <string name="ability_3">Cross</string>
+    <string name="ability_4">Kick</string>
+    <string name="ability_5">Finalization</string>
+
 </resources>
