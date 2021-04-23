@@ -27,6 +27,8 @@ public class TrainingActivity extends AppCompatActivity {
      */
     private FragmentStateAdapter pagerAdapter;
     private Button buttonBack;
+    private Button buttonAllena;
+    private Button buttonNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,9 @@ public class TrainingActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
+
+        buttonAllena = (Button) findViewById(R.id.button_allena);
+        buttonNext = (Button) findViewById(R.id.button_find_training_next);
 
         if (viewPager.getCurrentItem() == 0) {
             buttonBack = (Button) findViewById(R.id.button_find_training_back);
@@ -98,12 +103,20 @@ public class TrainingActivity extends AppCompatActivity {
         if (viewPager.getCurrentItem() != 0) {
             buttonBack.setEnabled(true);
         }
+        if (viewPager.getCurrentItem() == 3) {
+            buttonAllena.setEnabled(true);
+            buttonNext.setEnabled(false);
+        }
     }
 
     public void goToPreviousStep (View view) {
         viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
         if (viewPager.getCurrentItem() == 0) {
             buttonBack.setEnabled(false);
+        }
+        if (viewPager.getCurrentItem() == 2) {
+            buttonAllena.setEnabled(false);
+            buttonNext.setEnabled(true);
         }
     }
 
@@ -116,11 +129,11 @@ public class TrainingActivity extends AppCompatActivity {
         @Override
         public Fragment createFragment(int position) {
             switch (position) {
-                case 0: return TrainingPlayerDataFragment.newInstance("Fragment Player Data","");
-                case 1: return TrainingAbilityFragment.newInstance("Fragment Ability 1", "");
-                case 2: return TrainingAbilityFragment.newInstance("Fragment Ability 2", "");
-                case 3: return TrainingAbilityFragment.newInstance("Fragment Ability 3", "");
-                default: return TrainingAbilityFragment.newInstance("Default","");
+                case 0: return TrainingPlayerDataFragment.newInstance("Fragment Player Data","1");
+                case 1: return TrainingAbilityFragment.newInstance("Fragment Ability 1", position);
+                case 2: return TrainingAbilityFragment.newInstance("Fragment Ability 2", position);
+                case 3: return TrainingAbilityFragment.newInstance("Fragment Ability 3", position);
+                default: return TrainingAbilityFragment.newInstance("Default",position);
             }
         }
 
