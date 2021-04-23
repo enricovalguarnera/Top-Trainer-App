@@ -63,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="36dp">
 
             <TextView
@@ -81,29 +82,38 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginTop="4dp">
                 <Button
+                    android:id="@+id/button_gk"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/gk"
+                    android:backgroundTint="@color/button_background_gk"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/dc"
+                    android:backgroundTint="@color/button_background_midfield"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/dr"
+                    android:backgroundTint="@color/button_background_midfield"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/dl"
+                    android:backgroundTint="@color/button_background_midfield"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -116,26 +126,34 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/dmc"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/mc"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/mr"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/ml"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -148,26 +166,34 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="AMR"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/amc"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="MC"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/amr"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="GK"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/aml"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="ST"
-                    android:layout_marginRight="4dp"/>
+                    android:text="@string/st"
+                    android:backgroundTint="@color/button_background_forward"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
             </LinearLayout>
 
 

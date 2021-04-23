@@ -30,6 +30,8 @@ public class TrainingActivity extends AppCompatActivity {
     private Button buttonAllena;
     private Button buttonNext;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,6 @@ public class TrainingActivity extends AppCompatActivity {
             buttonBack.setEnabled(false);
         }
 
-
 //        buttonFindTraining = (Button) findViewById(R.id.button_find_training);
 //        buttonFindTraining.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -57,9 +58,6 @@ public class TrainingActivity extends AppCompatActivity {
 //                Log.i("PLAYER NAME", playerNameEditText.getText().toString());
 //            }
 //        });
-
-
-
 //        button = findViewById(R.id.button_calculate);
 //        button.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View v) {

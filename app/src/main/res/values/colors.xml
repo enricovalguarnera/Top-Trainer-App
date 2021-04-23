@@ -11,4 +11,8 @@
     <color name="top_trainer_green_secondary">#1a887b</color>
     <color name="top_trainer_green_accent">#ccae3d</color>
     <color name="top_trainer_yellow">#F7C90C</color>
+
+
+<!--    Roles Color -->
+    <color name="gk_button_color">#1aa3ff</color>
 </resources>
