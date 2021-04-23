@@ -36,4 +36,18 @@
     <string name="ability_3">Cross</string>
     <string name="ability_4">Kick</string>
     <string name="ability_5">Finalization</string>
+
+    <!-- Roles String  -->
+    <string name="gk">GK</string>
+    <string name="dc">DC</string>
+    <string name="dr">DR</string>
+    <string name="dl">DL</string>
+    <string name="dmc">DMC</string>
+    <string name="mc">MC</string>
+    <string name="mr">MR</string>
+    <string name="ml">ML</string>
+    <string name="amc">AMC</string>
+    <string name="aml">AML</string>
+    <string name="amr">AMR</string>
+    <string name="st">ST</string>
 </resources>
