@@ -91,26 +91,73 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
                 <Button
+                    android:id="@+id/button_dc"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dc"
-                    android:backgroundTint="@color/button_background_midfield"
+                    android:backgroundTint="@color/button_background_defence"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
                 <Button
+                    android:id="@+id/button_dr"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dr"
-                    android:backgroundTint="@color/button_background_midfield"
+                    android:backgroundTint="@color/button_background_defence"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
                 <Button
+                    android:id="@+id/button_dl"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dl"
+                    android:backgroundTint="@color/button_background_defence"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp">
+                <Button
+                    android:id="@+id/button_dmc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/dmc"
+                    android:backgroundTint="@color/button_background_midfield"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
+                <Button
+                    android:id="@+id/button_mc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/mc"
+                    android:backgroundTint="@color/button_background_midfield"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
+                <Button
+                    android:id="@+id/button_mr"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/mr"
+                    android:backgroundTint="@color/button_background_midfield"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"/>
+                <Button
+                    android:id="@+id/button_ml"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/ml"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -123,70 +170,34 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginTop="4dp">
                 <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/dmc"
-                    android:backgroundTint="@color/button_background_defence"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/mc"
-                    android:backgroundTint="@color/button_background_defence"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/mr"
-                    android:backgroundTint="@color/button_background_defence"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/ml"
-                    android:backgroundTint="@color/button_background_defence"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="4dp">
-                <Button
+                    android:id="@+id/button_amc"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/amc"
-                    android:backgroundTint="@color/button_background_defence"
+                    android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
                 <Button
+                    android:id="@+id/button_amr"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/amr"
-                    android:backgroundTint="@color/button_background_defence"
+                    android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
                 <Button
+                    android:id="@+id/button_aml"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/aml"
-                    android:backgroundTint="@color/button_background_defence"
+                    android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
                 <Button
+                    android:id="@+id/button_st"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
