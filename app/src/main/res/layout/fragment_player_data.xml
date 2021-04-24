@@ -87,6 +87,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/gk"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_gk"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -96,6 +98,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dc"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_defence"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -105,6 +109,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dr"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_defence"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -114,6 +120,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dl"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_defence"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -131,6 +139,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dmc"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -140,6 +150,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/mc"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -149,6 +161,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/mr"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -158,6 +172,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/ml"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -175,6 +191,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/amc"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -184,6 +202,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/amr"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -193,6 +213,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/aml"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
@@ -202,6 +224,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/st"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_forward"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"/>
