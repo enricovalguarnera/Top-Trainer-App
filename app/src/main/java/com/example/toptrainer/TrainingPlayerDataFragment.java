@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class TrainingPlayerDataFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final Integer MAX_SELECTED_BUTTON = 3;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -39,6 +41,8 @@ public class TrainingPlayerDataFragment extends Fragment {
     private Button buttonAMR;
     private Button buttonAML;
     private Button buttonST;
+
+    public static Integer countSelected;
 
 
     public TrainingPlayerDataFragment() {
@@ -69,6 +73,7 @@ public class TrainingPlayerDataFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            countSelected = 0;
         }
     }
 
@@ -81,13 +86,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonGK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonGK.setSelected(!buttonGK.isSelected());
-//                if (buttonGK.isSelected()) {
-//                    GradientDrawable gradientDrawable = new GradientDrawable();
-//                    gradientDrawable.setColor(R.id.);
-//                    gradientDrawable.setStroke(2, getResources().getColor(R.color.black));
-//                    buttonGK.setBackground(gradientDrawable);
-//                }
+                Boolean isValid = updateCount(buttonGK.isSelected());
+                if (isValid) {
+                    buttonGK.setSelected(!buttonGK.isSelected());
+                }
             }
         });
 
@@ -95,80 +97,128 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonDC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonDC.setSelected(!buttonDC.isSelected());
+                Boolean isValid = updateCount(buttonDC.isSelected());
+                if (isValid) {
+                    buttonDC.setSelected(!buttonDC.isSelected());
+                }
             }
         });
         buttonDR = (Button) view.findViewById(R.id.button_dr);
         buttonDR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonDR.setSelected(!buttonDR.isSelected());
+                Boolean isValid = updateCount(buttonDR.isSelected());
+                if (isValid) {
+                    buttonDR.setSelected(!buttonDR.isSelected());
+                }
             }
         });
         buttonDL = (Button) view.findViewById(R.id.button_dl);
         buttonDL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonDL.setSelected(!buttonDL.isSelected());
+                Boolean isValid = updateCount(buttonDL.isSelected());
+                if (isValid) {
+                    buttonDL.setSelected(!buttonDL.isSelected());
+                }
             }
         });
         buttonDMC = (Button) view.findViewById(R.id.button_dmc);
         buttonDMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonDMC.setSelected(!buttonDMC.isSelected());
+                Boolean isValid = updateCount(buttonDMC.isSelected());
+                if (isValid) {
+                    buttonDMC.setSelected(!buttonDMC.isSelected());
+                }
             }
         });
         buttonMC = (Button) view.findViewById(R.id.button_mc);
         buttonMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonMC.setSelected(!buttonMC.isSelected());
+                Boolean isValid = updateCount(buttonMC.isSelected());
+                if (isValid) {
+                    buttonMC.setSelected(!buttonMC.isSelected());
+                }
             }
         });
         buttonMR = (Button) view.findViewById(R.id.button_mr);
         buttonMR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonMR.setSelected(!buttonMR.isSelected());
+                Boolean isValid = updateCount(buttonMR.isSelected());
+                if (isValid) {
+                    buttonMR.setSelected(!buttonMR.isSelected());
+                }
             }
         });
         buttonML = (Button) view.findViewById(R.id.button_ml);
         buttonML.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonML.setSelected(!buttonML.isSelected());
+                Boolean isValid = updateCount(buttonML.isSelected());
+                if (isValid) {
+                    buttonML.setSelected(!buttonML.isSelected());
+                }
             }
         });
         buttonAMC = (Button) view.findViewById(R.id.button_amc);
         buttonAMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonAMC.setSelected(!buttonAMC.isSelected());
+                Boolean isValid = updateCount(buttonAMC.isSelected());
+                if (isValid) {
+                    buttonAMC.setSelected(!buttonAMC.isSelected());
+                }
             }
         });
         buttonAMR = (Button) view.findViewById(R.id.button_amr);
         buttonAMR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonAMR.setSelected(!buttonAMR.isSelected());
+                Boolean isValid = updateCount(buttonAMR.isSelected());
+                if (isValid) {
+                    buttonAMR.setSelected(!buttonAMR.isSelected());
+                }
             }
         });
         buttonAML = (Button) view.findViewById(R.id.button_aml);
         buttonAML.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonAML.setSelected(!buttonAML.isSelected());
+                Boolean isValid = updateCount(buttonAML.isSelected());
+                if (isValid) {
+                    buttonAML.setSelected(!buttonAML.isSelected());
+                }
             }
         });
         buttonST = (Button) view.findViewById(R.id.button_st);
         buttonST.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonST.setSelected(!buttonST.isSelected());
+                Boolean isValid = updateCount(buttonST.isSelected());
+                if (isValid) {
+                    buttonST.setSelected(!buttonST.isSelected());
+                }
             }
         });
 
         return view;
+    }
+
+    // this function take state button and return updated count of selected buttons
+    private Boolean updateCount (Boolean isSelected) {
+        Boolean isValid = false;
+        if (!isSelected) {
+            if (TrainingPlayerDataFragment.countSelected < MAX_SELECTED_BUTTON) {
+                TrainingPlayerDataFragment.countSelected += 1;
+                isValid = true;
+            }
+        } else {
+            TrainingPlayerDataFragment.countSelected -= 1;
+            isValid = true;
+        }
+        return isValid;
     }
 }

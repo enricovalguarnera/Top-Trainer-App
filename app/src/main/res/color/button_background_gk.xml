@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="true" android:color="#006bb3">
-        <shape>
-            <stroke
-                android:width="6dp"
-                android:color="#000000"/>
-
-            <corners android:radius="4dp"/>
-        </shape>
     </item> <!--55% from w3schools HTML Color Picker -->
     <item android:color="#1aa3ff"/>
 
