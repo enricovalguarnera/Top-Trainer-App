@@ -30,8 +30,7 @@
     <!--  TrainingAbility Fragment  -->
     <string name="heading_ability_fragment">Inserisci abilità</string>
     <string name="info_message_ability_fragment">Compila tutte le abilità per procedere alla ricerca dell\'allenamento migliore</string>
-    <string name="heading_ability_type">Compila tutte le abilità per procedere alla ricerca dell\'allenamento migliore</string>
-    <string name="placeholder_edit_text_player_age">Inserisci età giocatore</string>
+    <string name="heading_ability_type">Categoria</string>
     <string name="ability_1">Passaggio</string>
     <string name="ability_2">Dribbling</string>
     <string name="ability_3">Cross</string>
@@ -51,4 +50,6 @@
     <string name="aml">AML</string>
     <string name="amr">AMR</string>
     <string name="st">ST</string>
+
+    <!-- -->
 </resources>

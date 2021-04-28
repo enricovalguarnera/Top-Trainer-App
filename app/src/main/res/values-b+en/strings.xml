@@ -29,8 +29,7 @@
     <!--  TrainingAbility Fragment  -->
     <string name="heading_ability_fragment">Insert ability</string>
     <string name="info_message_ability_fragment">Fill in all the skills to proceed in the search for the best training</string>
-    <string name="heading_ability_type">Forward</string>
-    <string name="placeholder_edit_text_player_age">Inserisci età giocatore</string>
+    <string name="heading_ability_type">Category</string>
     <string name="ability_1">Pass</string>
     <string name="ability_2">Dribbling</string>
     <string name="ability_3">Cross</string>
