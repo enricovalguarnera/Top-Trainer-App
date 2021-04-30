@@ -1,6 +1,5 @@
 package com.example.toptrainer;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -8,10 +7,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class TrainingActivity extends AppCompatActivity {
 
@@ -32,10 +31,6 @@ public class TrainingActivity extends AppCompatActivity {
     private Button buttonBack;
     private Button buttonAllena;
     private Button buttonNext;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +61,6 @@ public class TrainingActivity extends AppCompatActivity {
             buttonBack.setEnabled(false);
             super.onBackPressed();
         } else {
-
             // Otherwise, select the previous step.
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
             if (viewPager.getCurrentItem() == 0) {
@@ -79,7 +73,15 @@ public class TrainingActivity extends AppCompatActivity {
     }
 
     public void goToNextStep (View view) {
-        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        if (viewPager.getCurrentItem() == 0) {
+            Boolean isValidStep = checkValidityData();
+            if (isValidStep) {
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Selezionare almeno un ruolo", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
         if (viewPager.getCurrentItem() != 0) {
             buttonBack.setEnabled(true);
         }
@@ -87,6 +89,38 @@ public class TrainingActivity extends AppCompatActivity {
             buttonAllena.setEnabled(true);
             buttonNext.setEnabled(false);
         }
+    }
+
+    private Boolean checkValidityData() {
+        Boolean isValid = false;
+        Integer count = 0;
+
+        LinearLayout layout1 = (LinearLayout) findViewById(R.id.roles_first);
+        for (int i=0; i<layout1.getChildCount(); i++) {
+            Button b =  (Button) layout1.getChildAt(i);
+            if (b.isSelected()) {
+                count += 1;
+            }
+        }
+        LinearLayout layout2 = (LinearLayout) findViewById(R.id.roles_second);
+        for (int i=0; i<layout2.getChildCount(); i++) {
+            Button b =  (Button) layout2.getChildAt(i);
+            if (b.isSelected()) {
+                count += 1;
+            }
+        }
+        LinearLayout layout3 = (LinearLayout) findViewById(R.id.roles_third);
+        for (int i=0; i<layout3.getChildCount(); i++) {
+            Button b =  (Button) layout3.getChildAt(i);
+            if (b.isSelected()) {
+                count += 1;
+            }
+        }
+
+        if (count >= 1) {
+            isValid = true;
+        }
+        return isValid;
     }
 
     public void goToPreviousStep (View view) {
