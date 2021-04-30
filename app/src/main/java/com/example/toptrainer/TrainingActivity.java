@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -43,6 +44,7 @@ public class TrainingActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setUserInputEnabled(false);
 
         buttonAllena = (Button) findViewById(R.id.button_allena);
         buttonNext = (Button) findViewById(R.id.button_find_training_next);
@@ -51,6 +53,7 @@ public class TrainingActivity extends AppCompatActivity {
             buttonBack = (Button) findViewById(R.id.button_find_training_back);
             buttonBack.setEnabled(false);
         }
+
 
     }
 
