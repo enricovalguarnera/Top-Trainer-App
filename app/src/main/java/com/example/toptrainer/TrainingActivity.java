@@ -52,37 +52,6 @@ public class TrainingActivity extends AppCompatActivity {
             buttonBack.setEnabled(false);
         }
 
-//        buttonFindTraining = (Button) findViewById(R.id.button_find_training);
-//        buttonFindTraining.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                playerNameEditText = (EditText) findViewById(R.id.player_name);
-//                Log.i("PLAYER NAME", playerNameEditText.getText().toString());
-//            }
-//        });
-//        button = findViewById(R.id.button_calculate);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                editTextFirst = findViewById(R.id.first_ability);
-//                firstAbility = editTextFirst.getText().toString();
-//
-//                editTextSecond = findViewById(R.id.second_ability);
-//                secondAbility = editTextSecond.getText().toString();
-//                if (TextUtils.isEmpty(firstAbility) || TextUtils.isEmpty(secondAbility)) {
-//                    Toast toast = Toast.makeText(getApplicationContext(), "Compila tutti i campi!", Toast.LENGTH_SHORT);
-//                    toast.show();
-//                } else {
-//                    firstToShow = (TextView) findViewById(R.id.textToShowFirst);
-//                    firstToShow.setText(String.valueOf(multiplication(Integer.parseInt(firstAbility), Integer.parseInt(secondAbility))));
-//
-//                    secondToShow = (TextView) findViewById(R.id.textToShowSecond);
-//                    secondToShow.setText(String.valueOf(summing(Integer.parseInt(firstAbility), Integer.parseInt(secondAbility))));
-//
-//                    thirdToShow = (TextView) findViewById(R.id.textToShowThird);
-//                    thirdToShow.setText(String.valueOf(multiplication(Integer.parseInt(firstAbility), Integer.parseInt(secondAbility)) * 10));
-//                }
-//            }
-//        });
     }
 
     @Override
