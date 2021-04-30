@@ -1,5 +1,6 @@
 package com.example.toptrainer;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -7,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -53,9 +55,8 @@ public class TrainingActivity extends AppCompatActivity {
             buttonBack = (Button) findViewById(R.id.button_find_training_back);
             buttonBack.setEnabled(false);
         }
-
-
     }
+
 
     @Override
     public void onBackPressed() {
@@ -65,8 +66,15 @@ public class TrainingActivity extends AppCompatActivity {
             buttonBack.setEnabled(false);
             super.onBackPressed();
         } else {
+
             // Otherwise, select the previous step.
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+            if (viewPager.getCurrentItem() == 0) {
+                buttonBack.setEnabled(false);
+            }
+            if (viewPager.getCurrentItem() == 2) {
+                buttonNext.setEnabled(true);
+            }
         }
     }
 
