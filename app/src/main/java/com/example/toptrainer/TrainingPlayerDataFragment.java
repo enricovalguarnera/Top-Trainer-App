@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,15 +81,35 @@ public class TrainingPlayerDataFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_player_data, container, false);
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_player_data, container, false);
+
         buttonGK = (Button) view.findViewById(R.id.button_gk);
         buttonGK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Boolean isValid = updateCount(buttonGK.isSelected());
                 if (isValid) {
+                    if (!buttonGK.isSelected()) {
+                        resetAllButtons();
+                    }
                     buttonGK.setSelected(!buttonGK.isSelected());
+                }
+            }
+
+            private void resetAllButtons() {
+                LinearLayout layout = (LinearLayout) view.findViewById(R.id.roles_vertical);
+                for (int i=0; i<layout.getChildCount(); i++) {
+                    if (layout.getChildAt(i) instanceof LinearLayout) {
+                        LinearLayout linearLayout = (LinearLayout) layout.getChildAt(i);
+                        for (int j=0; j<linearLayout.getChildCount(); j++) {
+                            if (linearLayout.getChildAt(j) instanceof Button && linearLayout.getChildAt(i).getId() != R.id.button_gk) {
+                                Button b =  (Button) linearLayout.getChildAt(j);
+                                b.setSelected(false);
+                                TrainingPlayerDataFragment.countSelected = 1;
+                            }
+                        }
+                    }
                 }
             }
         });
@@ -97,6 +118,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonDC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonDC.isSelected());
                 if (isValid) {
                     buttonDC.setSelected(!buttonDC.isSelected());
@@ -107,6 +132,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonDR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonDR.isSelected());
                 if (isValid) {
                     buttonDR.setSelected(!buttonDR.isSelected());
@@ -117,6 +146,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonDL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonDL.isSelected());
                 if (isValid) {
                     buttonDL.setSelected(!buttonDL.isSelected());
@@ -127,6 +160,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonDMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonDMC.isSelected());
                 if (isValid) {
                     buttonDMC.setSelected(!buttonDMC.isSelected());
@@ -137,6 +174,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonMC.isSelected());
                 if (isValid) {
                     buttonMC.setSelected(!buttonMC.isSelected());
@@ -147,6 +188,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonMR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonMR.isSelected());
                 if (isValid) {
                     buttonMR.setSelected(!buttonMR.isSelected());
@@ -157,6 +202,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonML.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonML.isSelected());
                 if (isValid) {
                     buttonML.setSelected(!buttonML.isSelected());
@@ -167,6 +216,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonAMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonAMC.isSelected());
                 if (isValid) {
                     buttonAMC.setSelected(!buttonAMC.isSelected());
@@ -177,6 +230,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonAMR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonAMR.isSelected());
                 if (isValid) {
                     buttonAMR.setSelected(!buttonAMR.isSelected());
@@ -187,6 +244,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonAML.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonAML.isSelected());
                 if (isValid) {
                     buttonAML.setSelected(!buttonAML.isSelected());
@@ -197,6 +258,10 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonST.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (buttonGK.isSelected()) {
+                    buttonGK.setSelected(false);
+                    TrainingPlayerDataFragment.countSelected = 0;
+                }
                 Boolean isValid = updateCount(buttonST.isSelected());
                 if (isValid) {
                     buttonST.setSelected(!buttonST.isSelected());
@@ -204,8 +269,11 @@ public class TrainingPlayerDataFragment extends Fragment {
             }
         });
 
+
         return view;
     }
+
+
 
     // this function take state button and return updated count of selected buttons
     private Boolean updateCount (Boolean isSelected) {
