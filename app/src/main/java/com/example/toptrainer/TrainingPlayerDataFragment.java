@@ -88,7 +88,7 @@ public class TrainingPlayerDataFragment extends Fragment {
         buttonGK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Boolean isValid = updateCount(buttonGK.isSelected());
+                Boolean isValid = updateCountForGK(buttonGK.isSelected());
                 if (isValid) {
                     if (!buttonGK.isSelected()) {
                         resetAllButtons();
@@ -289,4 +289,18 @@ public class TrainingPlayerDataFragment extends Fragment {
         }
         return isValid;
     }
+    private Boolean updateCountForGK (Boolean isSelected) {
+        Boolean isValid = false;
+        if (!isSelected) {
+            if (TrainingPlayerDataFragment.countSelected < MAX_SELECTED_BUTTON + 1) {
+                TrainingPlayerDataFragment.countSelected += 1;
+                isValid = true;
+            }
+        } else {
+            TrainingPlayerDataFragment.countSelected -= 1;
+            isValid = true;
+        }
+        return isValid;
+    }
+
 }
