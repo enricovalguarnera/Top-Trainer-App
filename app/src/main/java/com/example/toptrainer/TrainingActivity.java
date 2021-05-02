@@ -58,8 +58,8 @@ public class TrainingActivity extends AppCompatActivity {
         if (viewPager.getCurrentItem() == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
             // Back button. This calls finish() on this activity and pops the back stack.
-            buttonBack.setEnabled(false);
             super.onBackPressed();
+            buttonBack.setEnabled(false);
         } else {
             // Otherwise, select the previous step.
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
@@ -77,17 +77,17 @@ public class TrainingActivity extends AppCompatActivity {
             Boolean isValidStep = checkValidityData();
             if (isValidStep) {
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                buttonBack.setEnabled(true);
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(), "Selezionare almeno un ruolo", Toast.LENGTH_LONG);
                 toast.show();
             }
-        }
-        if (viewPager.getCurrentItem() != 0) {
-            buttonBack.setEnabled(true);
-        }
-        if (viewPager.getCurrentItem() == 3) {
+        } else if (viewPager.getCurrentItem() == 2) {
+            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
             buttonAllena.setEnabled(true);
             buttonNext.setEnabled(false);
+        } else if (viewPager.getCurrentItem() != 0) {
+            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
         }
     }
 
@@ -95,25 +95,18 @@ public class TrainingActivity extends AppCompatActivity {
         Boolean isValid = false;
         Integer count = 0;
 
-        LinearLayout layout1 = (LinearLayout) findViewById(R.id.roles_first);
-        for (int i=0; i<layout1.getChildCount(); i++) {
-            Button b =  (Button) layout1.getChildAt(i);
-            if (b.isSelected()) {
-                count += 1;
-            }
-        }
-        LinearLayout layout2 = (LinearLayout) findViewById(R.id.roles_second);
-        for (int i=0; i<layout2.getChildCount(); i++) {
-            Button b =  (Button) layout2.getChildAt(i);
-            if (b.isSelected()) {
-                count += 1;
-            }
-        }
-        LinearLayout layout3 = (LinearLayout) findViewById(R.id.roles_third);
-        for (int i=0; i<layout3.getChildCount(); i++) {
-            Button b =  (Button) layout3.getChildAt(i);
-            if (b.isSelected()) {
-                count += 1;
+        LinearLayout layout = (LinearLayout) findViewById(R.id.roles_vertical);
+        for (int i=0; i<layout.getChildCount(); i++) {
+            if (layout.getChildAt(i) instanceof LinearLayout) {
+                LinearLayout linearLayout = (LinearLayout) layout.getChildAt(i);
+                for (int j=0; j<linearLayout.getChildCount(); j++) {
+                    if (linearLayout.getChildAt(j) instanceof Button) {
+                        Button b =  (Button) linearLayout.getChildAt(j);
+                        if (b.isSelected()) {
+                            count += 1;
+                        }
+                    }
+                }
             }
         }
 
