@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class TrainingActivity extends AppCompatActivity {
@@ -31,6 +32,7 @@ public class TrainingActivity extends AppCompatActivity {
     private Button buttonBack;
     private Button buttonAllena;
     private Button buttonNext;
+    private Button buttonGK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,7 @@ public class TrainingActivity extends AppCompatActivity {
             if (isValidStep) {
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                 buttonBack.setEnabled(true);
+                setLayoutText();
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(), "Selezionare almeno un ruolo", Toast.LENGTH_LONG);
                 toast.show();
@@ -88,6 +91,18 @@ public class TrainingActivity extends AppCompatActivity {
             buttonNext.setEnabled(false);
         } else if (viewPager.getCurrentItem() != 0) {
             viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        }
+    }
+
+    private void setLayoutText() {
+        buttonGK = (Button) findViewById(R.id.button_gk);
+        TextView category = (TextView) findViewById(R.id.category_heading);
+        if (category != null) {
+            if (buttonGK.isSelected()) {
+                category.setText("Portiere 1");
+            } else {
+                category.setText("Attacco");
+            }
         }
     }
 

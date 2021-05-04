@@ -3,6 +3,7 @@ package com.example.toptrainer;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -10,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +30,9 @@ public class TrainingAbilityFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private Integer mParam2;
+
+    private Button buttonGK;
+    private TextView textViewCategory;
 
     public TrainingAbilityFragment() {
         // Required empty public constructor
@@ -62,6 +69,20 @@ public class TrainingAbilityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_training_ability, container, false);
+        View view= inflater.inflate(R.layout.fragment_training_ability, container, false);
+        buttonGK = (Button) getActivity().findViewById(R.id.button_gk);
+        textViewCategory = (TextView) view.findViewById(R.id.category_heading);
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (buttonGK.isSelected()) {
+            textViewCategory.setText("Portiere 1");
+        } else {
+            textViewCategory.setText("Attacco");
+        }
+        Log.i("ON_RESUME", "resume");
     }
 }
