@@ -29,7 +29,7 @@ public class TrainingAbilityFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mParam1;
-    private Integer mParam2;
+    private Integer position;
 
     private Button buttonGK;
     private TextView textViewCategory;
@@ -62,7 +62,7 @@ public class TrainingAbilityFragment extends Fragment {
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getInt(ARG_PARAM2);
+            position = getArguments().getInt(ARG_PARAM2);
         }
     }
 
@@ -79,7 +79,14 @@ public class TrainingAbilityFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (buttonGK.isSelected()) {
-            textViewCategory.setText("Portiere 1");
+            Log.i("POSITION", String.valueOf(position));
+            if (position == 1) {
+                textViewCategory.setText("Portiere 1");
+            } else if (position == 2) {
+                textViewCategory.setText("Portiere 2");
+            } else if (position == 3) {
+                textViewCategory.setText("Fisico e Mentale");
+            }
         } else {
             textViewCategory.setText("Attacco");
         }
