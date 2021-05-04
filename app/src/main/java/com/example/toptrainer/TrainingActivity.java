@@ -33,6 +33,7 @@ public class TrainingActivity extends AppCompatActivity {
     private Button buttonAllena;
     private Button buttonNext;
     private Button buttonGK;
+    private static Boolean isGKSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class TrainingActivity extends AppCompatActivity {
 
         buttonAllena = (Button) findViewById(R.id.button_allena);
         buttonNext = (Button) findViewById(R.id.button_find_training_next);
+
 
         if (viewPager.getCurrentItem() == 0) {
             buttonBack = (Button) findViewById(R.id.button_find_training_back);
@@ -75,6 +77,12 @@ public class TrainingActivity extends AppCompatActivity {
     }
 
     public void goToNextStep (View view) {
+        buttonGK = (Button) findViewById(R.id.button_gk);
+        if (buttonGK != null && buttonGK.isSelected()) {
+            TrainingActivity.isGKSelected = true;
+        } else if (buttonGK != null && !buttonGK.isSelected()) {
+            TrainingActivity.isGKSelected = false;
+        }
         if (viewPager.getCurrentItem() == 0) {
             Boolean isValidStep = checkValidityData();
             if (isValidStep) {
@@ -139,10 +147,10 @@ public class TrainingActivity extends AppCompatActivity {
         public Fragment createFragment(int position) {
             switch (position) {
                 case 0: return TrainingPlayerDataFragment.newInstance("Fragment Player Data","1");
-                case 1: return TrainingAbilityFragment.newInstance("Fragment Ability 1", position);
-                case 2: return TrainingAbilityFragment.newInstance("Fragment Ability 2", position);
-                case 3: return TrainingAbilityFragment.newInstance("Fragment Ability 3", position);
-                default: return TrainingAbilityFragment.newInstance("Default",position);
+                case 1: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected, position);
+                case 2: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected, position);
+                case 3: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected, position);
+                default: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected,position);
             }
         }
 

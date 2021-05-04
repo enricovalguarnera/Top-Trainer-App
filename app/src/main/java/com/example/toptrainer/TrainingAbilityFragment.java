@@ -28,7 +28,7 @@ public class TrainingAbilityFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private Boolean isGKSelected;
     private Integer position;
 
     private Button buttonGK;
@@ -47,10 +47,10 @@ public class TrainingAbilityFragment extends Fragment {
      * @return A new instance of fragment BlankFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TrainingAbilityFragment newInstance(String param1, Integer param2) {
+    public static TrainingAbilityFragment newInstance(Boolean param1, Integer param2) {
         TrainingAbilityFragment fragment = new TrainingAbilityFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putBoolean(ARG_PARAM1, param1);
         args.putInt(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
@@ -61,7 +61,7 @@ public class TrainingAbilityFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            isGKSelected = getArguments().getBoolean(ARG_PARAM1);
             position = getArguments().getInt(ARG_PARAM2);
         }
     }
@@ -70,7 +70,10 @@ public class TrainingAbilityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_training_ability, container, false);
-        buttonGK = (Button) getActivity().findViewById(R.id.button_gk);
+//        buttonGK = (Button) getActivity().findViewById(R.id.button_gk);
+//        if (buttonGK != null) {
+//            isGKSelected = buttonGK.isSelected();
+//        }
         textViewCategory = (TextView) view.findViewById(R.id.category_heading);
         return view;
     }
@@ -78,8 +81,14 @@ public class TrainingAbilityFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (buttonGK.isSelected()) {
-            Log.i("POSITION", String.valueOf(position));
+        if (getArguments() != null) {
+            isGKSelected = getArguments().getBoolean(ARG_PARAM1);
+        }
+
+        Log.i("POSITION", String.valueOf(position));
+
+        // TODO: controllare che al resume venga preso il valore corretto aggiornato. Il problema è che il fragment non ripassa dal metodo onCreateView non istanziando
+        if (isGKSelected) {
             if (position == 1) {
                 textViewCategory.setText("Portiere 1");
             } else if (position == 2) {
@@ -88,8 +97,26 @@ public class TrainingAbilityFragment extends Fragment {
                 textViewCategory.setText("Fisico e Mentale");
             }
         } else {
-            textViewCategory.setText("Attacco");
+            if (position == 1) {
+                textViewCategory.setText("Attacco");
+            } else if (position == 2) {
+                textViewCategory.setText("Difesa");
+            } else if (position == 3) {
+                textViewCategory.setText("Fisico e Mentale");
+            }
         }
-        Log.i("ON_RESUME", "resume");
+//        if (buttonGK.isSelected()) {
+//            Log.i("POSITION", String.valueOf(position));
+//            if (position == 1) {
+//                textViewCategory.setText("Portiere 1");
+//            } else if (position == 2) {
+//                textViewCategory.setText("Portiere 2");
+//            } else if (position == 3) {
+//                textViewCategory.setText("Fisico e Mentale");
+//            }
+//        } else {
+//            textViewCategory.setText("Attacco");
+//        }
+//        Log.i("ON_RESUME", "resume");
     }
 }
