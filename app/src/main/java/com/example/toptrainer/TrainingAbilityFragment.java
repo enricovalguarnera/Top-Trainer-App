@@ -1,5 +1,7 @@
 package com.example.toptrainer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -81,14 +83,13 @@ public class TrainingAbilityFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (getArguments() != null) {
-            isGKSelected = getArguments().getBoolean(ARG_PARAM1);
-        }
 
-        Log.i("POSITION", String.valueOf(position));
+        // Logica salvataggio stato bottone GK all'onResume dei fragment
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        Boolean gkValue = sharedPref.getBoolean("GK_VALUE", false);
 
         // TODO: controllare che al resume venga preso il valore corretto aggiornato. Il problema è che il fragment non ripassa dal metodo onCreateView non istanziando
-        if (isGKSelected) {
+        if (gkValue) {
             if (position == 1) {
                 textViewCategory.setText("Portiere 1");
             } else if (position == 2) {
@@ -105,18 +106,5 @@ public class TrainingAbilityFragment extends Fragment {
                 textViewCategory.setText("Fisico e Mentale");
             }
         }
-//        if (buttonGK.isSelected()) {
-//            Log.i("POSITION", String.valueOf(position));
-//            if (position == 1) {
-//                textViewCategory.setText("Portiere 1");
-//            } else if (position == 2) {
-//                textViewCategory.setText("Portiere 2");
-//            } else if (position == 3) {
-//                textViewCategory.setText("Fisico e Mentale");
-//            }
-//        } else {
-//            textViewCategory.setText("Attacco");
-//        }
-//        Log.i("ON_RESUME", "resume");
     }
 }

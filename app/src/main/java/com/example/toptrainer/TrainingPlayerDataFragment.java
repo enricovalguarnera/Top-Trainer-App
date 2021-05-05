@@ -1,5 +1,7 @@
 package com.example.toptrainer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 
@@ -273,7 +275,17 @@ public class TrainingPlayerDataFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("POSITION", String.valueOf(buttonGK.isSelected()));
 
+        // Logica salvataggio stato bottone GK all'onResume dei fragment. Viene fatta all'onPause per ottenere il valore aggiornato del bottone GK prima che la view cambi
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("GK_VALUE", buttonGK.isSelected());
+        editor.apply();
+    }
 
     // this function take state button and return updated count of selected buttons
     private Boolean updateCount (Boolean isSelected) {

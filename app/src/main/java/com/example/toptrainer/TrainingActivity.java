@@ -32,8 +32,6 @@ public class TrainingActivity extends AppCompatActivity {
     private Button buttonBack;
     private Button buttonAllena;
     private Button buttonNext;
-    private Button buttonGK;
-    private static Boolean isGKSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +43,7 @@ public class TrainingActivity extends AppCompatActivity {
         pagerAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setUserInputEnabled(false);
+
 
         buttonAllena = (Button) findViewById(R.id.button_allena);
         buttonNext = (Button) findViewById(R.id.button_find_training_next);
@@ -77,12 +76,6 @@ public class TrainingActivity extends AppCompatActivity {
     }
 
     public void goToNextStep (View view) {
-        buttonGK = (Button) findViewById(R.id.button_gk);
-        if (buttonGK != null && buttonGK.isSelected()) {
-            TrainingActivity.isGKSelected = true;
-        } else if (buttonGK != null && !buttonGK.isSelected()) {
-            TrainingActivity.isGKSelected = false;
-        }
         if (viewPager.getCurrentItem() == 0) {
             Boolean isValidStep = checkValidityData();
             if (isValidStep) {
@@ -147,10 +140,10 @@ public class TrainingActivity extends AppCompatActivity {
         public Fragment createFragment(int position) {
             switch (position) {
                 case 0: return TrainingPlayerDataFragment.newInstance("Fragment Player Data","1");
-                case 1: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected, position);
-                case 2: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected, position);
-                case 3: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected, position);
-                default: return TrainingAbilityFragment.newInstance(TrainingActivity.isGKSelected,position);
+                case 1: return TrainingAbilityFragment.newInstance(false, position);
+                case 2: return TrainingAbilityFragment.newInstance(false, position);
+                case 3: return TrainingAbilityFragment.newInstance(false, position);
+                default: return TrainingAbilityFragment.newInstance(false,position);
             }
         }
 
