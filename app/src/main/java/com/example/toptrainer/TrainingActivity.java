@@ -7,8 +7,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -85,13 +87,47 @@ public class TrainingActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Selezionare almeno un ruolo", Toast.LENGTH_LONG);
                 toast.show();
             }
+        } else if (viewPager.getCurrentItem() == 1) {
+            Boolean isValidStep = checkAbilitiesEditing();
+            if (isValidStep) {
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Editare tutti le abilità prima di andare avanti. Il valore delle abilità non può essere zero", Toast.LENGTH_LONG);
+                toast.show();
+            }
         } else if (viewPager.getCurrentItem() == 2) {
-            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-            buttonAllena.setEnabled(true);
-            buttonNext.setEnabled(false);
-        } else if (viewPager.getCurrentItem() != 0) {
-            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+            Boolean isValidStep = checkAbilitiesEditing();
+            if (isValidStep) {
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                buttonAllena.setEnabled(true);
+                buttonNext.setEnabled(false);
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Editare tutti le abilità prima di andare avanti. Il valore delle abilità non può essere zero", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }  // TODO la validazione del terzo step deve avvenire al click del bottone allena.
+    }
+
+    private Boolean checkAbilitiesEditing () {
+        Boolean isValid = false;
+        EditText editTextFirst = (EditText) findViewById(R.id.first_edit_text_ability);
+        EditText editTextSecond = (EditText) findViewById(R.id.second_edit_text_ability);
+        EditText editTextThird = (EditText) findViewById(R.id.third_edit_text_ability);
+        EditText editTextFourth = (EditText) findViewById(R.id.fourth_edit_text_ability);
+        EditText editTextFiveth = (EditText) findViewById(R.id.five_edit_text_ability);
+
+        String firstAbility = editTextFirst.getText().toString();
+        String secondAbility = editTextSecond.getText().toString();
+        String thirdAbility = editTextThird.getText().toString();
+        String fourthAbility = editTextFourth.getText().toString();
+        String fivethAbility = editTextFiveth.getText().toString();
+
+        if (!firstAbility.matches("") && !firstAbility.matches("0") && !secondAbility.matches("") && !secondAbility.matches("0")
+                && !thirdAbility.matches("") && !thirdAbility.matches("0") && !fourthAbility.matches("") && !fourthAbility.matches("0")
+                && !fivethAbility.matches("") && !fivethAbility.matches("0") ) {
+            isValid = true;
         }
+        return isValid;
     }
 
     private Boolean checkValidityData() {
