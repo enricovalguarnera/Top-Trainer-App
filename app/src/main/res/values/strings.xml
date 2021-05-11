@@ -30,12 +30,37 @@
     <!--  TrainingAbility Fragment  -->
     <string name="heading_ability_fragment">Inserisci abilità</string>
     <string name="info_message_ability_fragment">Compila tutte le abilità per procedere alla ricerca dell\'allenamento migliore</string>
-    <string name="heading_ability_type">Categoria</string>
-    <string name="ability_1">Passaggio</string>
-    <string name="ability_2">Dribbling</string>
-    <string name="ability_3">Cross</string>
-    <string name="ability_4">Tiro</string>
-    <string name="ability_5">Finalizzazione</string>
+    <string name="heading_ability_type_forward">Attacco</string>
+    <string name="heading_ability_type_defence">Difesa</string>
+    <string name="heading_ability_type_physic">Fisico e Mentale</string>
+    <string name="heading_ability_type_gk_1">Portiere 1/2</string>
+    <string name="heading_ability_type_gk_2">Portiere 2/2</string>
+    <string name="forward_ability_pass">Passaggio</string>
+    <string name="forward_ability_dribbling">Dribbling</string>
+    <string name="forward_ability_cross">Cross</string>
+    <string name="forward_ability_tiro">Tiro</string>
+    <string name="forward_ability_fin">Finalizzazione</string>
+    <string name="defence_ability_contrasto">Contrasto</string>
+    <string name="defence_ability_marcatura">Marcatura</string>
+    <string name="defence_ability_pos">Posizionamento</string>
+    <string name="defence_ability_colpo_testa">Colpo di Testa</string>
+    <string name="defence_ability_coraggio">Coraggio</string>
+    <string name="fisico_ability_forma">Forma</string>
+    <string name="fisico_ability_forza">Forza</string>
+    <string name="fisico_ability_aggr">Aggressività</string>
+    <string name="fisico_ability_velocita">Velocità</string>
+    <string name="fisico_ability_creativita">Creatività</string>
+    <string name="gk_ability_riflessi">Riflessi</string>
+    <string name="gk_ability_agilita">Agilità</string>
+    <string name="gk_ability_anticipo">Anticipo</string>
+    <string name="gk_ability_scatto">Scatto</string>
+    <string name="gk_ability_comunicazione">Comunicazione</string>
+    <string name="gk_ability_lancio">Lancio</string>
+    <string name="gk_ability_calcio">Calcio</string>
+    <string name="gk_ability_pugni">Pugni</string>
+    <string name="gk_ability_elevazione">Elevazione</string>
+    <string name="gk_ability_concentrazione">Concentrazione</string>
+
 
     <!-- Roles String  -->
     <string name="gk">GK</string>

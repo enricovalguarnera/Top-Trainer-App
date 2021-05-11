@@ -35,6 +35,11 @@ public class TrainingAbilityFragment extends Fragment {
 
     private Button buttonGK;
     private TextView textViewCategory;
+    private TextView textViewFirstAbility;
+    private TextView textViewSecondAbility;
+    private TextView textViewThirdAbility;
+    private TextView textViewFourthAbility;
+    private TextView textViewFivethAbility;
 
     public TrainingAbilityFragment() {
         // Required empty public constructor
@@ -77,6 +82,11 @@ public class TrainingAbilityFragment extends Fragment {
 //            isGKSelected = buttonGK.isSelected();
 //        }
         textViewCategory = (TextView) view.findViewById(R.id.category_heading);
+        textViewFirstAbility = (TextView) view.findViewById(R.id.first_text_view_ability);
+        textViewSecondAbility = (TextView) view.findViewById(R.id.second_text_view_ability);
+        textViewThirdAbility = (TextView) view.findViewById(R.id.third_text_view_ability);
+        textViewFourthAbility = (TextView) view.findViewById(R.id.fourth_text_view_ability);
+        textViewFivethAbility = (TextView) view.findViewById(R.id.fiveth_text_view_ability);
         return view;
     }
 
@@ -91,19 +101,49 @@ public class TrainingAbilityFragment extends Fragment {
         // TODO: controllare che al resume venga preso il valore corretto aggiornato. Il problema è che il fragment non ripassa dal metodo onCreateView non istanziando
         if (gkValue) {
             if (position == 1) {
-                textViewCategory.setText("Portiere 1");
+                textViewCategory.setText(R.string.heading_ability_type_gk_1);
+                textViewFirstAbility.setText(R.string.gk_ability_riflessi);
+                textViewSecondAbility.setText(R.string.gk_ability_agilita);
+                textViewThirdAbility.setText(R.string.gk_ability_anticipo);
+                textViewFourthAbility.setText(R.string.gk_ability_scatto);
+                textViewFivethAbility.setText(R.string.gk_ability_comunicazione);
             } else if (position == 2) {
-                textViewCategory.setText("Portiere 2");
+                textViewCategory.setText(R.string.heading_ability_type_gk_2);
+                textViewFirstAbility.setText(R.string.gk_ability_lancio);
+                textViewSecondAbility.setText(R.string.gk_ability_calcio);
+                textViewThirdAbility.setText(R.string.gk_ability_pugni);
+                textViewFourthAbility.setText(R.string.gk_ability_elevazione);
+                textViewFivethAbility.setText(R.string.gk_ability_concentrazione);
             } else if (position == 3) {
-                textViewCategory.setText("Fisico e Mentale");
+                textViewCategory.setText(R.string.heading_ability_type_physic);
+                textViewFirstAbility.setText(R.string.fisico_ability_forma);
+                textViewSecondAbility.setText(R.string.fisico_ability_forza);
+                textViewThirdAbility.setText(R.string.fisico_ability_aggr);
+                textViewFourthAbility.setText(R.string.fisico_ability_velocita);
+                textViewFivethAbility.setText(R.string.fisico_ability_creativita);
             }
         } else {
             if (position == 1) {
-                textViewCategory.setText("Attacco");
+                textViewCategory.setText(R.string.heading_ability_type_defence);
+                textViewFirstAbility.setText(R.string.defence_ability_contrasto);
+                textViewSecondAbility.setText(R.string.defence_ability_marcatura);
+                textViewThirdAbility.setText(R.string.defence_ability_colpo_testa);
+                textViewFourthAbility.setText(R.string.defence_ability_colpo_testa);
+                textViewFivethAbility.setText(R.string.defence_ability_coraggio);
             } else if (position == 2) {
-                textViewCategory.setText("Difesa");
+                textViewCategory.setText(R.string.heading_ability_type_forward);
+                textViewFirstAbility.setText(R.string.forward_ability_pass);
+                textViewSecondAbility.setText(R.string.forward_ability_dribbling);
+                textViewThirdAbility.setText(R.string.forward_ability_cross);
+                textViewFourthAbility.setText(R.string.forward_ability_tiro);
+                textViewFivethAbility.setText(R.string.forward_ability_fin);
             } else if (position == 3) {
-                textViewCategory.setText("Fisico e Mentale");
+                textViewCategory.setText(R.string.heading_ability_type_physic);
+                textViewFirstAbility.setText(R.string.fisico_ability_forma);
+                textViewSecondAbility.setText(R.string.fisico_ability_forza);
+                textViewThirdAbility.setText(R.string.fisico_ability_aggr);
+                textViewFourthAbility.setText(R.string.fisico_ability_velocita);
+                textViewFivethAbility.setText(R.string.fisico_ability_creativita);
             }
         }
     }

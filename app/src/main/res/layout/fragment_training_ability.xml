@@ -31,7 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/Heading_h2"
-            android:text="@string/heading_ability_type"
             android:layout_marginBottom="24dp"/>
 
         <LinearLayout
@@ -41,11 +40,11 @@
             android:background="@android:color/holo_green_light"
             android:layout_marginBottom="12dp">
             <TextView
+                android:id="@+id/first_text_view_ability"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:theme="@style/NormalText"
-                android:text="@string/ability_1"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
@@ -59,7 +58,6 @@
                 android:layout_weight="1"
                 android:inputType="number"
                 android:gravity="center"
-                android:text="0"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:textColor="@color/black"/>
@@ -72,11 +70,11 @@
             android:background="@android:color/holo_green_light"
             android:layout_marginBottom="12dp">
             <TextView
+                android:id="@+id/second_text_view_ability"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:theme="@style/NormalText"
-                android:text="@string/ability_2"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
@@ -90,7 +88,6 @@
                 android:layout_weight="1"
                 android:inputType="number"
                 android:gravity="center"
-                android:text="0"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:textColor="@color/black"/>
@@ -103,11 +100,11 @@
             android:background="@android:color/holo_green_light"
             android:layout_marginBottom="12dp">
             <TextView
+                android:id="@+id/third_text_view_ability"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:theme="@style/NormalText"
-                android:text="@string/ability_3"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
@@ -121,7 +118,6 @@
                 android:layout_weight="1"
                 android:inputType="number"
                 android:gravity="center"
-                android:text="0"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:textColor="@color/black"/>
@@ -134,11 +130,11 @@
             android:background="@android:color/holo_green_light"
             android:layout_marginBottom="12dp">
             <TextView
+                android:id="@+id/fourth_text_view_ability"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:theme="@style/NormalText"
-                android:text="@string/ability_4"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
@@ -152,7 +148,6 @@
                 android:layout_weight="1"
                 android:inputType="number"
                 android:gravity="center"
-                android:text="0"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:textColor="@color/black"/>
@@ -165,11 +160,11 @@
             android:background="@android:color/holo_green_light"
             android:layout_marginBottom="12dp">
             <TextView
+                android:id="@+id/fiveth_text_view_ability"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:theme="@style/NormalText"
-                android:text="@string/ability_5"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
@@ -183,7 +178,6 @@
                 android:layout_weight="1"
                 android:inputType="number"
                 android:gravity="center"
-                android:text="0"
                 android:textSize="24dp"
                 android:layout_marginRight="12dp"
                 android:textColor="@color/black"/>

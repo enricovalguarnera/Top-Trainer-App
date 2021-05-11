@@ -29,12 +29,36 @@
     <!--  TrainingAbility Fragment  -->
     <string name="heading_ability_fragment">Insert ability</string>
     <string name="info_message_ability_fragment">Fill in all the skills to proceed in the search for the best training</string>
-    <string name="heading_ability_type">Category</string>
-    <string name="ability_1">Pass</string>
-    <string name="ability_2">Dribbling</string>
-    <string name="ability_3">Cross</string>
-    <string name="ability_4">Kick</string>
-    <string name="ability_5">Finalization</string>
+    <string name="heading_ability_type_forward">Forward</string>
+    <string name="heading_ability_type_defence">Defence</string>
+    <string name="heading_ability_type_physic">Physical and Mental</string>
+    <string name="heading_ability_type_gk_1">Goalkeeper 1/2</string>
+    <string name="heading_ability_type_gk_2">Goalkeeper 2/2</string>
+    <string name="forward_ability_pass">Passing</string>
+    <string name="forward_ability_dribbling">Dribbling</string>
+    <string name="forward_ability_cross">Crossing</string>
+    <string name="forward_ability_tiro">Shooting</string>
+    <string name="forward_ability_fin">Finishing</string>
+    <string name="defence_ability_contrasto">Tackling</string>
+    <string name="defence_ability_marcatura">Marking</string>
+    <string name="defence_ability_pos">Positioning</string>
+    <string name="defence_ability_colpo_testa">Heading</string>
+    <string name="defence_ability_coraggio">Bravery</string>
+    <string name="fisico_ability_forma">Fitness</string>
+    <string name="fisico_ability_forza">Strength</string>
+    <string name="fisico_ability_aggr">Aggression</string>
+    <string name="fisico_ability_velocita">Speed</string>
+    <string name="fisico_ability_creativita">Creativity</string>
+    <string name="gk_ability_riflessi">Reflexes</string>
+    <string name="gk_ability_agilita">Agility</string>
+    <string name="gk_ability_anticipo">Anticipation</string>
+    <string name="gk_ability_scatto">Rushing out</string>
+    <string name="gk_ability_comunicazione">Communication</string>
+    <string name="gk_ability_lancio">Throwing</string>
+    <string name="gk_ability_calcio">Kicking</string>
+    <string name="gk_ability_pugni">Punching</string>
+    <string name="gk_ability_elevazione">Aerial reach</string>
+    <string name="gk_ability_concentrazione">Concentration</string>
 
     <!-- Roles String  -->
     <string name="gk">GK</string>
