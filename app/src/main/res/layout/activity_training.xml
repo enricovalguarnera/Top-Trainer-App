@@ -67,6 +67,7 @@
                 android:backgroundTint="@color/button_background_color"
                 android:enabled="false"
                 android:text="@string/button_allena_label"
+                android:onClick="goToTraining"
                 android:textColor="@color/button_background_training"
                 android:textSize="24dp" />
         </LinearLayout>

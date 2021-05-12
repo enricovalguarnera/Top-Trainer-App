@@ -13,9 +13,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +46,12 @@ public class TrainingAbilityFragment extends Fragment {
     private TextView textViewThirdAbility;
     private TextView textViewFourthAbility;
     private TextView textViewFivethAbility;
+
+    private EditText firstEditText;
+    private EditText secondEditText;
+    private EditText thirdEditText;
+    private EditText fourthEditText;
+    private EditText fivethEditText;
 
     public TrainingAbilityFragment() {
         // Required empty public constructor
@@ -87,6 +99,13 @@ public class TrainingAbilityFragment extends Fragment {
         textViewThirdAbility = (TextView) view.findViewById(R.id.third_text_view_ability);
         textViewFourthAbility = (TextView) view.findViewById(R.id.fourth_text_view_ability);
         textViewFivethAbility = (TextView) view.findViewById(R.id.fiveth_text_view_ability);
+
+        firstEditText = (EditText) view.findViewById(R.id.first_edit_text_ability);
+        secondEditText = (EditText) view.findViewById(R.id.second_edit_text_ability);
+        thirdEditText = (EditText) view.findViewById(R.id.third_edit_text_ability);
+        fourthEditText = (EditText) view.findViewById(R.id.fourth_edit_text_ability);
+        fivethEditText = (EditText) view.findViewById(R.id.five_edit_text_ability);
+
         return view;
     }
 
@@ -94,9 +113,12 @@ public class TrainingAbilityFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+        Log.i("POS_FRAG", String.valueOf(position));
         // Logica salvataggio stato bottone GK all'onResume dei fragment
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         Boolean gkValue = sharedPref.getBoolean("GK_VALUE", false);
+
+
 
         // TODO: controllare che al resume venga preso il valore corretto aggiornato. Il problema è che il fragment non ripassa dal metodo onCreateView non istanziando
         if (gkValue) {
