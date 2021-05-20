@@ -137,22 +137,30 @@ public class TrainingActivity extends AppCompatActivity {
         EditText fourthEditText = (EditText) findViewById(R.id.fourth_edit_text_ability);
         EditText fivethEditText = (EditText) findViewById(R.id.five_edit_text_ability);
 
-        Set<String> abilitiSet = new HashSet<>();
-        abilitiSet.add(firstEditText.getText().toString());
-        abilitiSet.add(secondEditText.getText().toString());
-        abilitiSet.add(thirdEditText.getText().toString());
-        abilitiSet.add(fourthEditText.getText().toString());
-        abilitiSet.add(fivethEditText.getText().toString());
+        List<String> abilitiList = new ArrayList<>();
+        abilitiList.add(firstEditText.getText().toString());
+        abilitiList.add(secondEditText.getText().toString());
+        abilitiList.add(thirdEditText.getText().toString());
+        abilitiList.add(fourthEditText.getText().toString());
+        abilitiList.add(fivethEditText.getText().toString());
 
         if (param == 1) {
             SharedPreferences abilities1 = getPreferences(Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = abilities1.edit();
-            editor.putStringSet("ABILITY_1", abilitiSet);
+            editor.putString("ABILITY_1", abilitiList.get(0));
+            editor.putString("ABILITY_2", abilitiList.get(1));
+            editor.putString("ABILITY_3", abilitiList.get(2));
+            editor.putString("ABILITY_4", abilitiList.get(3));
+            editor.putString("ABILITY_5", abilitiList.get(4));
             editor.apply();
         } else if (param == 2) {
             SharedPreferences abilities2 = getPreferences(Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = abilities2.edit();
-            editor.putStringSet("ABILITY_2", abilitiSet);
+            editor.putString("ABILITY_6", abilitiList.get(0));
+            editor.putString("ABILITY_7", abilitiList.get(1));
+            editor.putString("ABILITY_8", abilitiList.get(2));
+            editor.putString("ABILITY_9", abilitiList.get(3));
+            editor.putString("ABILITY_10", abilitiList.get(4));
             editor.apply();
         }
     }
@@ -161,11 +169,21 @@ public class TrainingActivity extends AppCompatActivity {
         if (viewPager.getCurrentItem() == 3) {
             Boolean isValid = checkAbilitiesEditing();
             if (isValid) {
-                // intent to Result Training Activity
-
+                // salvo i dati della terza istanza del fragment ability
+                EditText firstEditText = (EditText) findViewById(R.id.first_edit_text_ability);
+                EditText secondEditText = (EditText) findViewById(R.id.second_edit_text_ability);
+                EditText thirdEditText = (EditText) findViewById(R.id.third_edit_text_ability);
+                EditText fourthEditText = (EditText) findViewById(R.id.fourth_edit_text_ability);
+                EditText fivethEditText = (EditText) findViewById(R.id.five_edit_text_ability);
 
                 List<String> abilities = new ArrayList<>();
                 abilities = getAbilityList();
+                abilities.add(firstEditText.getText().toString());
+                abilities.add(secondEditText.getText().toString());
+                abilities.add(thirdEditText.getText().toString());
+                abilities.add(fourthEditText.getText().toString());
+                abilities.add(fivethEditText.getText().toString());
+
 
                 // Todo manca la lista delle abilità della teza istanza del fragment
                 Intent intent = new Intent(this, ResultActivity.class);
@@ -183,15 +201,17 @@ public class TrainingActivity extends AppCompatActivity {
         List<String> abilities = new ArrayList<>();
 
         SharedPreferences abilities1 = getPreferences(Context.MODE_PRIVATE);
-        Set<String> abilitiesSet1 = abilities1.getStringSet("ABILITY_1", new HashSet<String>());
-        for (String str: abilitiesSet1) {
-            abilities.add(str);
-        }
-        SharedPreferences abilities2 = getPreferences(Context.MODE_PRIVATE);
-        Set<String> abilitiesSet2 = abilities2.getStringSet("ABILITY_2", new HashSet<String>());
-        for (String str: abilitiesSet2) {
-            abilities.add(str);
-        }
+        abilities.add(abilities1.getString("ABILITY_1", new String()));
+        abilities.add(abilities1.getString("ABILITY_2", new String()));
+        abilities.add(abilities1.getString("ABILITY_3", new String()));
+        abilities.add(abilities1.getString("ABILITY_4", new String()));
+        abilities.add(abilities1.getString("ABILITY_5", new String()));
+        abilities.add(abilities1.getString("ABILITY_6", new String()));
+        abilities.add(abilities1.getString("ABILITY_7", new String()));
+        abilities.add(abilities1.getString("ABILITY_8", new String()));
+        abilities.add(abilities1.getString("ABILITY_9", new String()));
+        abilities.add(abilities1.getString("ABILITY_10", new String()));
+
 //        EditText
         return abilities;
     }
