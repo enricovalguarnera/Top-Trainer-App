@@ -6,10 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Result Activity"
-        android:textSize="48dp"/>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/total_average"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="% Percentuale totale"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/white_average"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="% Percetuale abilità bianche"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/role_average"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="% Percentuale su ruolo"
+            android:textSize="24dp"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

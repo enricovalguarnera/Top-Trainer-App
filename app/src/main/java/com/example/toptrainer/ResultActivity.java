@@ -10,6 +10,11 @@ import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
 
+    private static final String LOG = "RESULT";
+    private Integer totalPercentage;
+    private Integer whitePercentage;
+    private Integer rolePercentage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +24,34 @@ public class ResultActivity extends AppCompatActivity {
         Bundle args = intent.getBundleExtra("EXTRA_MESSAGE");
         ArrayList<Object> abilities = (ArrayList<Object>) args.getSerializable("ABILITY");
         Log.i("RESULT", String.valueOf(abilities.get(0)));
+
+        totalPercentage = getTotalPercentage();
+        whitePercentage = getWhitePercentage();
+        rolePercentage = getRolePercentage();
+
+        getBestTraining();
     }
+
+    private void getBestTraining() {
+        Log.i(LOG, "Get Best Training method");
+    }
+
+    private Integer getTotalPercentage() {
+        Log.i(LOG, "Get Total Percentage method");
+        Integer result = null;
+        return result;
+    }
+
+    private Integer getWhitePercentage() {
+        Log.i(LOG, "Get White Percentage method");
+        Integer result = null;
+        return result;
+    }
+    private Integer getRolePercentage() {
+        Log.i(LOG, "Get Role Percentage method");
+        Integer result = null;
+        return result;
+    }
+
+
 }
