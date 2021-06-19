@@ -13,7 +13,6 @@ public class ResultActivity extends AppCompatActivity {
     private static final String LOG = "RESULT";
     private Integer totalPercentage;
     private Integer whitePercentage;
-    private Integer rolePercentage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,6 @@ public class ResultActivity extends AppCompatActivity {
 
         totalPercentage = getTotalPercentage();
         whitePercentage = getWhitePercentage();
-        rolePercentage = getRolePercentage();
 
         getBestTraining();
     }
@@ -47,11 +45,7 @@ public class ResultActivity extends AppCompatActivity {
         Integer result = null;
         return result;
     }
-    private Integer getRolePercentage() {
-        Log.i(LOG, "Get Role Percentage method");
-        Integer result = null;
-        return result;
-    }
+
 
 
 }

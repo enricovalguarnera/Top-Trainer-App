@@ -26,13 +26,6 @@
             android:text="% Percetuale abilità bianche"
             android:textSize="24dp"/>
 
-        <TextView
-            android:id="@+id/role_average"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="% Percentuale su ruolo"
-            android:textSize="24dp"/>
     </LinearLayout>
 
 
