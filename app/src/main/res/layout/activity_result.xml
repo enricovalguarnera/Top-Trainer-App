@@ -100,6 +100,60 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="#00cc44"
+                android:text="@string/heading_bar_gradient_training_top"
+                android:theme="@style/Heading_h1"
+                android:textSize="16dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="#ffff00"
+                android:text="@string/heading_bar_gradient_training_good"
+                android:theme="@style/Heading_h1"
+                android:textSize="16dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="#ffbf00"
+                android:text="@string/heading_bar_gradient_training_normale"
+                android:theme="@style/Heading_h1"
+                android:textSize="16dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="#ff8000"
+                android:text="@string/heading_bar_gradient_training_bad"
+                android:theme="@style/Heading_h1"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ff3300"
+                android:gravity="center"
+                android:text="@string/heading_bar_gradient_training_worst"
+                android:textSize="16dp"
+                android:theme="@style/Heading_h1" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
