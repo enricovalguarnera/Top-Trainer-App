@@ -16,7 +16,8 @@ public class ResultActivity extends AppCompatActivity {
     private Integer totalPercentage;
     private Integer whitePercentage;
 
-    private Map<String, String> abilityMap;
+    private Map<String, String> abilityMap;             // mappa: key nome abilita, tipo di abilità (difesa, attacco, portiere, fisico e mentale)
+    private Map<String, String> insertedMapAbility;     // mappa: key nome abilita, value valore inserito in fase di compilazione
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +27,31 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("EXTRA_MESSAGE");
         ArrayList<Object> abilities = (ArrayList<Object>) args.getSerializable("ABILITY");
-        Log.i("RESULT", String.valueOf(abilities.get(0)));
+        Boolean gkValue  = (Boolean) args.getBoolean("GK_VALUE");
 
+        Log.i(LOG, String.valueOf(abilities.get(0)));
+        Log.i(LOG, String.valueOf(gkValue));
+
+        // calcolo le percentuali
         totalPercentage = getTotalPercentage();
         whitePercentage = getWhitePercentage();
 
-        getBestTraining();
+        // questo metodo associa le abilità inserite (arraylist abilities) con i nomi corretti. Per costruzione l'assaylist differenzia le posizioni delle abilita in base al ruolo
+        // Nel caso sia un portiere nelle prime 10 posizioni ci saranno le abilità da portiere e nelle ultime 5 le abilità di tipo Fisico e Mentale.
+        // Nel caso sia un giocatore di ruolo nelle prime 5 posizioni ci saranno le abilità di tipo difesa, nelle altre 5 le abilità di tipo attacco, nelle ultime 5 le abilita di tipo Fisico e Mentale
+//        associateInsertedAbilities(gkValue);
 
+        // inizializzo la mappa delle abilità per tipo
         abilityMap = initAbilities();
-        Log.i(LOG, (String) abilityMap.get("colpo_di_testa"));
+
+        // calcolo il miglior allenamento
+        getBestTraining();
     }
 
 
     private void getBestTraining() {
         Log.i(LOG, "Get Best Training method");
+
     }
 
     private Integer getTotalPercentage() {

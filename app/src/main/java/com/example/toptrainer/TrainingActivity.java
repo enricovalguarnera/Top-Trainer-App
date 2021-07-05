@@ -184,17 +184,22 @@ public class TrainingActivity extends AppCompatActivity {
                 abilities.add(fourthEditText.getText().toString());
                 abilities.add(fivethEditText.getText().toString());
 
-
-                // Todo manca la lista delle abilità della teza istanza del fragment
                 Intent intent = new Intent(this, ResultActivity.class);
                 Bundle args = new Bundle();
                 args.putSerializable("ABILITY", (Serializable) abilities);
+                args.putBoolean("GK_VALUE", getGkValue());
                 intent.putExtra("EXTRA_MESSAGE", args);
                 startActivity(intent);
             } else {
 
             }
         }
+    }
+
+    private Boolean getGkValue () {
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        Boolean gkValue = sharedPref.getBoolean("GK_VALUE", false);
+        return gkValue;
     }
 
     private List<String> getAbilityList () {
