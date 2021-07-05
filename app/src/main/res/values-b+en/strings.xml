@@ -60,6 +60,10 @@
     <string name="gk_ability_elevazione">Aerial reach</string>
     <string name="gk_ability_concentrazione">Concentration</string>
 
+    <!--  Result Activity  -->
+    <string name="heading_percentage_result_activity">Percentage %</string>
+    <string name="heading_best_training_result_activity">Best training</string>
+
     <!-- Roles String  -->
     <string name="gk">GK</string>
     <string name="dc">DC</string>

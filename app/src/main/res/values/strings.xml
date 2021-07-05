@@ -62,6 +62,10 @@
     <string name="gk_ability_concentrazione">Concentrazione</string>
 
 
+    <!--  Result Activity  -->
+    <string name="heading_percentage_result_activity">Percentuali %</string>
+    <string name="heading_best_training_result_activity">Miglior allenamento</string>
+
     <!-- Roles String  -->
     <string name="gk">GK</string>
     <string name="dc">DC</string>
@@ -75,6 +79,8 @@
     <string name="aml">AML</string>
     <string name="amr">AMR</string>
     <string name="st">ST</string>
+
+
 
     <!-- -->
 </resources>
