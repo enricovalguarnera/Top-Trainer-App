@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,14 +49,61 @@ public class ResultActivity extends AppCompatActivity {
         insertedMapAbility = associateInsertedAbilities(abilities, gkValue);
 
         // calcolo il miglior allenamento
-        getBestTraining(insertedMapAbility);
+        getBestTraining(insertedMapAbility, gkValue);
     }
 
 
     private void getBestTraining(Map<String, String> insertedMapAbility, Boolean isGoalkeeper) {
         Log.i(LOG, "Get Best Training method");
+        Map<String, List<String>> trainingMap = getTrainingList();
+        Map<String, Float> crescitePotenziali = new HashMap<>();
 
+        // ciclo tutti gli allenamenti
+        for (Map.Entry<String,List<String>> entry : trainingMap.entrySet()) {
+            List<String> trainingAbilities = entry.getValue();
+            String trainingName = entry.getKey();
+            // ciclo le abilità all'interno del training i
+            List<Integer> abilitiesValue = new ArrayList<>();
+            for (int i=0; i < trainingAbilities.size() - 1 ; i++) {
+                if (insertedMapAbility.get(trainingAbilities.get(i)) != null) {
+                    abilitiesValue.add(Integer.valueOf(insertedMapAbility.get(trainingAbilities.get(i))));
+                }
+            }
+            crescitePotenziali.put(trainingName, 180 - calculateAverage(abilitiesValue));
+        }
+
+        Float crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
+        Log.i(LOG, String.valueOf("Crescita potenziale: " + crescitaPotenzialeMax));
     }
+
+    private Float getMaxValueFromList(Map<String, Float> crescitePotenziali) {
+        Map.Entry<String, Float> maxEntry = null;
+        for (Map.Entry<String, Float> entry : crescitePotenziali.entrySet()) {
+            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0 ) {
+                if (entry.getValue() != null && !Float.isNaN(entry.getValue())) {
+                    maxEntry = entry;
+                }
+            }
+        }
+        return maxEntry.getValue();
+    }
+
+    // metodo per il calcolo della media
+    private float calculateAverage (List<Integer> list) {
+        float sum = 0;
+        int i=0;
+
+        while(i < list.size()) {
+            sum += list.get(i);
+            i++;
+        }
+
+        //compute average
+        float average = (sum / list.size());
+        return average;
+    }
+
+
 
     private Integer getTotalPercentage() {
         Log.i(LOG, "Get Total Percentage method");
@@ -166,6 +214,191 @@ public class ResultActivity extends AppCompatActivity {
     }
 
 
+    private Map<String, List<String>> getTrainingList () {
+        Map<String, List<String>> result = new HashMap<>();
 
+
+        // ALLENAMENTI DI ATTACCO
+        List<String> unoDueTiro = new ArrayList<>();
+        unoDueTiro.add("velocita");
+        unoDueTiro.add("passaggio");
+        unoDueTiro.add("tiro");
+        unoDueTiro.add("anticipo");
+        result.put("uno_due_tiro", unoDueTiro);
+
+        List<String> contropiediVeloci = new ArrayList<>();
+        contropiediVeloci.add("creativita");
+        contropiediVeloci.add("passaggio");
+        contropiediVeloci.add("cross");
+        contropiediVeloci.add("finalizzazione");
+        contropiediVeloci.add("comunicazione");
+        result.put("contropiedi_veloci", contropiediVeloci);
+
+        List<String> controlloPalla = new ArrayList<>();
+        controlloPalla.add("creativita");
+        controlloPalla.add("dribbling");
+        controlloPalla.add("colpo_di_testa");
+        controlloPalla.add("concentrazione");
+        result.put("controllo_palla", controlloPalla);
+
+        List<String> tecnicaDiTiro = new ArrayList<>();
+        tecnicaDiTiro.add("forza");
+        tecnicaDiTiro.add("tiro");
+        tecnicaDiTiro.add("finalizzazione");
+        tecnicaDiTiro.add("riflessi");
+        tecnicaDiTiro.add("agilita");
+        result.put("tecnica_di_tiro", tecnicaDiTiro);
+
+        List<String> calciPiazzati = new ArrayList<>();
+        calciPiazzati.add("cross");
+        calciPiazzati.add("tiro");
+        calciPiazzati.add("marcatura");
+        calciPiazzati.add("colpo_di_testa");
+        calciPiazzati.add("scatto");
+        result.put("calci_piazzati", calciPiazzati);
+
+        List<String> slalom = new ArrayList<>();
+        slalom.add("forma");
+        slalom.add("velocita");
+        slalom.add("passaggio");
+        slalom.add("dribbling");
+        result.put("slalom", slalom);
+
+        List<String> giocoSulleFasce = new ArrayList<>();
+        giocoSulleFasce.add("cross");
+        giocoSulleFasce.add("tiro");
+        giocoSulleFasce.add("finalizzazione");
+        giocoSulleFasce.add("colpo_di_testa");
+        giocoSulleFasce.add("pugni");
+        result.put("gioco_sulle_fasce", giocoSulleFasce);
+
+        List<String> duelloColPortiere = new ArrayList<>();
+        duelloColPortiere.add("dribbling");
+        duelloColPortiere.add("finalizzazione");
+        duelloColPortiere.add("contrasto");
+        duelloColPortiere.add("anticipo");
+        duelloColPortiere.add("scatto");
+        result.put("duello_col_portiere", duelloColPortiere);
+
+
+        // ALLENAMENTI DI DIFESA
+        List<String> pressing = new ArrayList<>();
+        pressing.add("aggressivita");
+        pressing.add("contrasto");
+        pressing.add("marcatura");
+        pressing.add("posizionamento");
+        result.put("pressing", pressing);
+
+        List<String> torello = new ArrayList<>();
+        torello.add("forma");
+        torello.add("aggressivita");
+        torello.add("passaggio");
+        torello.add("contrasto");
+        torello.add("posizionamento");
+        result.put("torello", torello);
+
+        List<String> allenamentoPortiere = new ArrayList<>();
+        allenamentoPortiere.add("riflessi");
+        allenamentoPortiere.add("agilita");
+        allenamentoPortiere.add("lancio");
+        allenamentoPortiere.add("calcio");
+        allenamentoPortiere.add("elevazione");
+        result.put("allenamento_portiere", allenamentoPortiere);
+
+        List<String> usaLaTesta = new ArrayList<>();
+        usaLaTesta.add("creativita");
+        usaLaTesta.add("passaggio");
+        usaLaTesta.add("posizionamento");
+        usaLaTesta.add("colpo_di_testa");
+        result.put("usa_la_testa", usaLaTesta);
+
+        List<String> fermaLattaccante = new ArrayList<>();
+        fermaLattaccante.add("forza");
+        fermaLattaccante.add("dribbling");
+        fermaLattaccante.add("contrasto");
+        fermaLattaccante.add("marcatura");
+        fermaLattaccante.add("coraggio");
+        result.put("ferma_l_attaccante", fermaLattaccante);
+
+        List<String> difesaSuiCross = new ArrayList<>();
+        difesaSuiCross.add("cross");
+        difesaSuiCross.add("marcatura");
+        difesaSuiCross.add("colpo_di_testa");
+        difesaSuiCross.add("coraggio");
+        difesaSuiCross.add("elevazione");
+        result.put("difesaSuiCross", difesaSuiCross);
+
+        List<String> analisiDeiVideo = new ArrayList<>();
+        analisiDeiVideo.add("creativita");
+        analisiDeiVideo.add("posizionamento");
+        analisiDeiVideo.add("coraggio");
+        analisiDeiVideo.add("comunicazione");
+        result.put("analisi_dei_video", analisiDeiVideo);
+
+        List<String> lineaDifensiva = new ArrayList<>();
+        lineaDifensiva.add("marcatura");
+        lineaDifensiva.add("posizionamento");
+        lineaDifensiva.add("comunicazione");
+        lineaDifensiva.add("concentrazione");
+        result.put("linea_difensiva", lineaDifensiva);
+
+        // ALLENAMENTI DI FISICO E MENTALE
+        List<String> riscaldamento = new ArrayList<>();
+        riscaldamento.add("forma");
+        riscaldamento.add("aggressivita");
+        riscaldamento.add("colpo_di_testa");
+        riscaldamento.add("riflessi");
+        result.put("riscaldamento", riscaldamento);
+
+        List<String> stretching = new ArrayList<>();
+        stretching.add("forma");
+        stretching.add("forza");
+        stretching.add("velocita");
+        stretching.add("agilita");
+        result.put("stretching", stretching);
+
+        List<String> scattiInVelocita = new ArrayList<>();
+        scattiInVelocita.add("forma");
+        scattiInVelocita.add("velocita");
+        scattiInVelocita.add("dribbling");
+        scattiInVelocita.add("scatto");
+        result.put("scatti_in_velocita", scattiInVelocita);
+
+        List<String> cariocaConScale = new ArrayList<>();
+        cariocaConScale.add("aggressivita");
+        cariocaConScale.add("velocita");
+        cariocaConScale.add("agilita");
+        cariocaConScale.add("concentrazione");
+        result.put("carioca_con_scale", cariocaConScale);
+
+        List<String> corsaSullaDistanza = new ArrayList<>();
+        corsaSullaDistanza.add("forma");
+        corsaSullaDistanza.add("velocita");
+        corsaSullaDistanza.add("concentrazione");
+        result.put("corsa_sulla_distanza", corsaSullaDistanza);
+
+        List<String> palestra = new ArrayList<>();
+        palestra.add("forma");
+        palestra.add("forza");
+        palestra.add("lancio");
+        palestra.add("calcio");
+        result.put("palestra", palestra);
+
+        List<String> testNavetta = new ArrayList<>();
+        testNavetta.add("forza");
+        testNavetta.add("velocita");
+        testNavetta.add("coraggio");
+        testNavetta.add("agilita");
+        result.put("testNavetta", testNavetta);
+
+        List<String> saltoAOstacoli = new ArrayList<>();
+        saltoAOstacoli.add("aggressivita");
+        saltoAOstacoli.add("velocita");
+        saltoAOstacoli.add("coraggio");
+        saltoAOstacoli.add("calcio");
+        result.put("salto_a_ostacoli", saltoAOstacoli);
+
+        return result;
+    }
 
 }
