@@ -8,6 +8,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ResultActivity extends AppCompatActivity {
@@ -44,12 +45,14 @@ public class ResultActivity extends AppCompatActivity {
         // inizializzo la mappa delle abilità per tipo
         abilityMap = initAbilities();
 
+        insertedMapAbility = associateInsertedAbilities(abilities, gkValue);
+
         // calcolo il miglior allenamento
-        getBestTraining();
+        getBestTraining(insertedMapAbility);
     }
 
 
-    private void getBestTraining() {
+    private void getBestTraining(Map<String, String> insertedMapAbility, Boolean isGoalkeeper) {
         Log.i(LOG, "Get Best Training method");
 
     }
@@ -63,6 +66,22 @@ public class ResultActivity extends AppCompatActivity {
     private Integer getWhitePercentage() {
         Log.i(LOG, "Get White Percentage method");
         Integer result = null;
+        return result;
+    }
+    
+    private Map<String, String> associateInsertedAbilities (ArrayList<Object> abilities, Boolean isGoalkeeper) {
+        Map<String, String> result = new HashMap<>();
+        List<String> playerAbilityModel;
+        if (isGoalkeeper) {
+            playerAbilityModel = getGKPlayerAbility();
+        } else {
+            playerAbilityModel = getNormalPlayerAbility();
+        }
+
+        for (int i=0; i < abilities.size(); i++) {
+            result.put(playerAbilityModel.get(i), (String) abilities.get(i));
+        }
+        
         return result;
     }
 
@@ -100,6 +119,52 @@ public class ResultActivity extends AppCompatActivity {
         abilityMap.put("creativita", "F");
         return abilityMap;
     }
+
+
+    private List<String> getNormalPlayerAbility() {
+        List<String> normalAbilities = new ArrayList<>();
+
+        normalAbilities.add("contrasto");
+        normalAbilities.add("marcatura");
+        normalAbilities.add("posizionamento");
+        normalAbilities.add("colpo_di_testa");
+        normalAbilities.add("coraggio");
+
+        normalAbilities.add("passaggio");
+        normalAbilities.add("dribbling");
+        normalAbilities.add("cross");
+        normalAbilities.add("tiro");
+        normalAbilities.add("finalizzazione");
+
+        normalAbilities.add("forma");
+        normalAbilities.add("forza");
+        normalAbilities.add("aggressivita");
+        normalAbilities.add("velocita");
+        normalAbilities.add("creativita");
+        return normalAbilities;
+    }
+
+    private List<String> getGKPlayerAbility() {
+        List<String> normalAbilities = new ArrayList<>();
+
+        normalAbilities.add("riflessi");
+        normalAbilities.add("agilita");
+        normalAbilities.add("anticipo");
+        normalAbilities.add("scatto");
+        normalAbilities.add("comunicazione");
+        normalAbilities.add("lancio");
+        normalAbilities.add("calcio");
+        normalAbilities.add("pugni");
+        normalAbilities.add("elevazione");
+        normalAbilities.add("concentrazione");
+        normalAbilities.add("forma");
+        normalAbilities.add("forza");
+        normalAbilities.add("aggressivita");
+        normalAbilities.add("velocita");
+        normalAbilities.add("creativita");
+        return normalAbilities;
+    }
+
 
 
 
