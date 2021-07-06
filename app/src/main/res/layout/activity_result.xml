@@ -17,6 +17,14 @@
             android:text="@string/heading_percentage_result_activity"
             android:theme="@style/Heading_h1"
             android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/NormalText"
+            android:text="@string/info_message_result_percentuali"
+            android:layout_marginBottom="32dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/NormalText"
-            android:text="@string/info_message_player_data_fragment"
+            android:text="@string/info_message_result_miglior_allenamento"
             android:layout_marginBottom="32dp"/>
 
         <TextView

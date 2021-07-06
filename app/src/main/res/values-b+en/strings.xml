@@ -63,7 +63,8 @@
     <!--  Result Activity  -->
     <string name="heading_percentage_result_activity">Percentage %</string>
     <string name="heading_best_training_result_activity">Best training</string>
-    <string name="info_message_result_miglior_allenamento">Ecco il miglior allenamento da eseguire per il tuo giocatore. Ricorca che il miglior allenamento è calcolato tenendo conto di una sessione di allenamento con tipologia di allenamento uguale per tutti e 6 gli slot.</string>
+    <string name="info_message_result_percentuali">Below are the total percentages for all of your player\'s skills and the percentage of white skills only.</string>
+    <string name="info_message_result_miglior_allenamento">Here is the best training for your player to perform. Remember that the best training is calculated taking into account a training session with the same type of training for all 6 slots.</string>
     <string name="heading_bar_gradient_training_top">Top</string>
     <string name="heading_bar_gradient_training_good">Good</string>
     <string name="heading_bar_gradient_training_normale">Normal</string>
