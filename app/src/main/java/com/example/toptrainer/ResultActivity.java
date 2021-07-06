@@ -2,7 +2,9 @@ package com.example.toptrainer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -58,6 +60,7 @@ public class ResultActivity extends AppCompatActivity {
         // Nel caso sia un giocatore di ruolo nelle prime 5 posizioni ci saranno le abilità di tipo difesa, nelle altre 5 le abilità di tipo attacco, nelle ultime 5 le abilita di tipo Fisico e Mentale
         insertedMapAbility = associateInsertedAbilities(abilities, gkValue);
 
+
         // calcolo il miglior allenamento
         getBestTraining(insertedMapAbility, gkValue);
     }
@@ -89,8 +92,23 @@ public class ResultActivity extends AppCompatActivity {
         Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
         String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
 
+        // setto il colore e la stringa per visualizzare l'allenamento migliore e la bonta della crescita potenziale
+        setTrainingColor(crescitaPotenzialeMax.getValue());
         resultTraining.setText(trainingResultString);
+    }
 
+    private void setTrainingColor(Float value) {
+        if (value >= 100) {
+            resultTraining.setBackgroundColor(Color.parseColor("#00cc44"));
+        } else if (value >= 80 && value < 100) {
+            resultTraining.setBackgroundColor(Color.parseColor("#ffff00"));
+        } else if (value >= 60 && value < 80) {
+            resultTraining.setBackgroundColor(Color.parseColor("#ffbf00"));
+        } else if (value >= 20 && value < 60) {
+            resultTraining.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else {
+            resultTraining.setBackgroundColor(Color.parseColor("#ff3300"));
+        }
     }
 
     private String formatTrainingString(String key) {
