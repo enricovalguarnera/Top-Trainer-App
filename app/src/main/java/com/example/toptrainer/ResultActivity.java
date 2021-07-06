@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +17,8 @@ public class ResultActivity extends AppCompatActivity {
     private static final String LOG = "RESULT";
     private Integer totalPercentage;
     private Integer whitePercentage;
+
+    private TextView resultTraining;
 
     private Map<String, String> abilityMap;             // mappa: key nome abilita, tipo di abilità (difesa, attacco, portiere, fisico e mentale)
     private Map<String, String> insertedMapAbility;     // mappa: key nome abilita, value valore inserito in fase di compilazione
@@ -31,6 +33,7 @@ public class ResultActivity extends AppCompatActivity {
         ArrayList<Object> abilities = (ArrayList<Object>) args.getSerializable("ABILITY");
         Boolean gkValue  = (Boolean) args.getBoolean("GK_VALUE");
 
+        resultTraining = (TextView) findViewById(R.id.result_training);
         Log.i(LOG, String.valueOf(abilities.get(0)));
         Log.i(LOG, String.valueOf(gkValue));
 
@@ -72,11 +75,27 @@ public class ResultActivity extends AppCompatActivity {
             crescitePotenziali.put(trainingName, 180 - calculateAverage(abilitiesValue));
         }
 
-        Float crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
-        Log.i(LOG, String.valueOf("Crescita potenziale: " + crescitaPotenzialeMax));
+        Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
+        Log.i(LOG, String.valueOf("Crescita potenziale KEY: " + crescitaPotenzialeMax.getKey()));
+        Log.i(LOG, String.valueOf("Crescita potenziale VALUE : " + crescitaPotenzialeMax.getValue()));
+        String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
+        Log.i(LOG, String.valueOf("Crescita potenziale KEY: " + trainingResultString));
+
+        resultTraining.setText(trainingResultString);
+
     }
 
-    private Float getMaxValueFromList(Map<String, Float> crescitePotenziali) {
+    private String formatTrainingString(String key) {
+        String result = "";
+        String [] arraySplitString = null;
+        arraySplitString = key.split("_");
+        for (int i=0; i<arraySplitString.length; i++) {
+            result = result + " " + arraySplitString[i].substring(0, 1).toUpperCase() + arraySplitString[i].substring(1);
+        }
+        return result;
+    }
+
+    private Map.Entry<String, Float> getMaxValueFromList(Map<String, Float> crescitePotenziali) {
         Map.Entry<String, Float> maxEntry = null;
         for (Map.Entry<String, Float> entry : crescitePotenziali.entrySet()) {
             if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0 ) {
@@ -85,7 +104,7 @@ public class ResultActivity extends AppCompatActivity {
                 }
             }
         }
-        return maxEntry.getValue();
+        return maxEntry;
     }
 
     // metodo per il calcolo della media
