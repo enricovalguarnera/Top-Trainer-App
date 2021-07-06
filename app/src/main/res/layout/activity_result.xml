@@ -68,6 +68,13 @@
 
         <TextView
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/NormalText"
+            android:text="@string/info_message_player_data_fragment"
+            android:layout_marginBottom="32dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:text="Uno-Due Tiro allenamento"
             android:theme="@style/Heading_h1"
