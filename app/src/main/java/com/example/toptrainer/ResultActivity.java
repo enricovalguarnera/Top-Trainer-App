@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,10 +16,12 @@ import java.util.Map;
 public class ResultActivity extends AppCompatActivity {
 
     private static final String LOG = "RESULT";
-    private Integer totalPercentage;
+    private Float totalPercentage;
     private Integer whitePercentage;
 
     private TextView resultTraining;
+    private TextView totalAverage;
+    private TextView whiteAverage;
 
     private Map<String, String> abilityMap;             // mappa: key nome abilita, tipo di abilità (difesa, attacco, portiere, fisico e mentale)
     private Map<String, String> insertedMapAbility;     // mappa: key nome abilita, value valore inserito in fase di compilazione
@@ -34,10 +37,21 @@ public class ResultActivity extends AppCompatActivity {
         Boolean gkValue  = (Boolean) args.getBoolean("GK_VALUE");
 
         resultTraining = (TextView) findViewById(R.id.result_training);
+        totalAverage = (TextView) findViewById(R.id.total_average);
+        whiteAverage = (TextView) findViewById(R.id.white_average);
 
-        // calcolo le percentuali
-        totalPercentage = getTotalPercentage();
+
+        // calcolo la percentuale totale e mostro la percentuale sulla TextView
+        totalPercentage = getTotalPercentage(abilities);
+        if (totalPercentage != null && !Float.isNaN(totalPercentage)) {
+            totalAverage.setText(String.valueOf(round(totalPercentage,2)) + "%");
+        }
+
+        // calcolo la percentuale delle abilita bianche e mostro la percentuale sulla TextView
         whitePercentage = getWhitePercentage();
+        if (whitePercentage != null && !Float.isNaN(whitePercentage)) {
+            whiteAverage.setText(String.valueOf(round(whitePercentage, 2)) + "%");
+        }
 
         // questo metodo associa le abilità inserite (arraylist abilities) con i nomi corretti. Per costruzione l'assaylist differenzia le posizioni delle abilita in base al ruolo
         // Nel caso sia un portiere nelle prime 10 posizioni ci saranno le abilità da portiere e nelle ultime 5 le abilità di tipo Fisico e Mentale.
@@ -48,6 +62,11 @@ public class ResultActivity extends AppCompatActivity {
         getBestTraining(insertedMapAbility, gkValue);
     }
 
+    public static float round(float d, int decimalPlace) {
+        BigDecimal bd = new BigDecimal(Float.toString(d));
+        bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
+        return bd.floatValue();
+    }
 
     private void getBestTraining(Map<String, String> insertedMapAbility, Boolean isGoalkeeper) {
         Map<String, List<String>> trainingMap = getTrainingList();
@@ -113,10 +132,19 @@ public class ResultActivity extends AppCompatActivity {
 
 
 
-    private Integer getTotalPercentage() {
+    private Float getTotalPercentage(ArrayList<Object> abilities) {
         Log.i(LOG, "Get Total Percentage method");
-        Integer result = null;
-        return result;
+        float sum = 0;
+        int i=0;
+
+        while(i < abilities.size()) {
+            sum += Float.parseFloat(String.valueOf(abilities.get(i)));
+            i++;
+        }
+
+        //compute average
+        float average = (sum / abilities.size());
+        return average;
     }
 
     private Integer getWhitePercentage() {
