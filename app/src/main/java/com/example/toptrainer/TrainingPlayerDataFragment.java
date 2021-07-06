@@ -278,7 +278,6 @@ public class TrainingPlayerDataFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        Log.i("POSITION", String.valueOf(buttonGK.isSelected()));
 
         // Logica salvataggio stato bottone GK all'onResume dei fragment. Viene fatta all'onPause per ottenere il valore aggiornato del bottone GK prima che la view cambi
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);

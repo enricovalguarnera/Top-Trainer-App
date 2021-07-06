@@ -34,8 +34,6 @@ public class ResultActivity extends AppCompatActivity {
         Boolean gkValue  = (Boolean) args.getBoolean("GK_VALUE");
 
         resultTraining = (TextView) findViewById(R.id.result_training);
-        Log.i(LOG, String.valueOf(abilities.get(0)));
-        Log.i(LOG, String.valueOf(gkValue));
 
         // calcolo le percentuali
         totalPercentage = getTotalPercentage();
@@ -44,11 +42,6 @@ public class ResultActivity extends AppCompatActivity {
         // questo metodo associa le abilità inserite (arraylist abilities) con i nomi corretti. Per costruzione l'assaylist differenzia le posizioni delle abilita in base al ruolo
         // Nel caso sia un portiere nelle prime 10 posizioni ci saranno le abilità da portiere e nelle ultime 5 le abilità di tipo Fisico e Mentale.
         // Nel caso sia un giocatore di ruolo nelle prime 5 posizioni ci saranno le abilità di tipo difesa, nelle altre 5 le abilità di tipo attacco, nelle ultime 5 le abilita di tipo Fisico e Mentale
-//        associateInsertedAbilities(gkValue);
-
-        // inizializzo la mappa delle abilità per tipo
-        abilityMap = initAbilities();
-
         insertedMapAbility = associateInsertedAbilities(abilities, gkValue);
 
         // calcolo il miglior allenamento
@@ -57,7 +50,6 @@ public class ResultActivity extends AppCompatActivity {
 
 
     private void getBestTraining(Map<String, String> insertedMapAbility, Boolean isGoalkeeper) {
-        Log.i(LOG, "Get Best Training method");
         Map<String, List<String>> trainingMap = getTrainingList();
         Map<String, Float> crescitePotenziali = new HashMap<>();
 
@@ -76,10 +68,7 @@ public class ResultActivity extends AppCompatActivity {
         }
 
         Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
-        Log.i(LOG, String.valueOf("Crescita potenziale KEY: " + crescitaPotenzialeMax.getKey()));
-        Log.i(LOG, String.valueOf("Crescita potenziale VALUE : " + crescitaPotenzialeMax.getValue()));
         String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
-        Log.i(LOG, String.valueOf("Crescita potenziale KEY: " + trainingResultString));
 
         resultTraining.setText(trainingResultString);
 

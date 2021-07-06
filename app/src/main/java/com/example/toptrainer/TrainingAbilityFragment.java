@@ -113,7 +113,6 @@ public class TrainingAbilityFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        Log.i("POS_FRAG", String.valueOf(position));
         // Logica salvataggio stato bottone GK all'onResume dei fragment
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         Boolean gkValue = sharedPref.getBoolean("GK_VALUE", false);
