@@ -148,7 +148,7 @@ public class TrainingAbilityFragment extends Fragment {
                 textViewCategory.setText(R.string.heading_ability_type_defence);
                 textViewFirstAbility.setText(R.string.defence_ability_contrasto);
                 textViewSecondAbility.setText(R.string.defence_ability_marcatura);
-                textViewThirdAbility.setText(R.string.defence_ability_colpo_testa);
+                textViewThirdAbility.setText(R.string.defence_ability_pos);
                 textViewFourthAbility.setText(R.string.defence_ability_colpo_testa);
                 textViewFivethAbility.setText(R.string.defence_ability_coraggio);
             } else if (position == 2) {
