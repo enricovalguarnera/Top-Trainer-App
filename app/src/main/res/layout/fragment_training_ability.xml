@@ -10,184 +10,180 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Heading -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/heading_ability_fragment"
-            android:theme="@style/Heading_h1"
-            android:layout_marginBottom="24dp"/>
-        <!-- Message info paragraph -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/NormalText"
-            android:text="@string/info_message_ability_fragment"
-            android:layout_marginBottom="32dp"/>
+            android:orientation="vertical"
+            android:background="@drawable/background_linear_layout_white_rounded"
+            android:padding="6dp"
+            android:layout_marginBottom="48dp">
+            <!-- Heading -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_ability_fragment"
+                android:theme="@style/Heading_h1"
+                android:layout_marginBottom="24dp"/>
+            <!-- Message info paragraph -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/NormalText"
+                android:text="@string/info_message_ability_fragment" />
+        </LinearLayout>
 
-        <!-- Categoria Abilità -->
-        <TextView
-            android:id="@+id/category_heading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Heading_h2"
-            android:layout_marginBottom="24dp"/>
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/holo_green_light"
-            android:layout_marginBottom="12dp">
+            android:orientation="vertical"
+            android:background="@drawable/background_linear_layout_white_rounded"
+            android:padding="6dp"
+            android:layout_marginBottom="24dp">
+
+            <!-- Categoria Abilità -->
             <TextView
-                android:id="@+id/first_text_view_ability"
-                android:layout_width="0dp"
+                android:id="@+id/category_heading"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:theme="@style/NormalText"
-                android:textSize="24dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:gravity="center"
-                android:textStyle="bold"/>
+                android:theme="@style/Heading_h2"
+                android:layout_marginBottom="24dp"/>
 
-            <EditText
-                android:id="@+id/first_edit_text_ability"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:gravity="center"
-                android:textSize="24dp"
-                android:maxLength="3"
-                android:layout_marginRight="12dp"
-                android:textColor="@color/black"/>
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:id="@+id/first_text_view_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/NormalText"
+                    android:gravity="left"/>
 
+                <EditText
+                    android:id="@+id/first_edit_text_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:id="@+id/second_text_view_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/NormalText"
+                    android:gravity="left"/>
+
+                <EditText
+                    android:id="@+id/second_edit_text_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:id="@+id/third_text_view_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/NormalText"
+                    android:gravity="left"/>
+
+                <EditText
+                    android:id="@+id/third_edit_text_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:id="@+id/fourth_text_view_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/NormalText"
+                    android:gravity="left" />
+
+                <EditText
+                    android:id="@+id/fourth_edit_text_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:id="@+id/fiveth_text_view_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/NormalText"
+                    android:gravity="left"/>
+
+                <EditText
+                    android:id="@+id/five_edit_text_ability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/holo_green_light"
-            android:layout_marginBottom="12dp">
-            <TextView
-                android:id="@+id/second_text_view_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:theme="@style/NormalText"
-                android:textSize="24dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:gravity="center"
-                android:textStyle="bold"/>
 
-            <EditText
-                android:id="@+id/second_edit_text_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:gravity="center"
-                android:textSize="24dp"
-                android:maxLength="3"
-                android:layout_marginRight="12dp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/holo_green_light"
-            android:layout_marginBottom="12dp">
-            <TextView
-                android:id="@+id/third_text_view_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:theme="@style/NormalText"
-                android:textSize="24dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:gravity="center"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/third_edit_text_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:gravity="center"
-                android:textSize="24dp"
-                android:maxLength="3"
-                android:layout_marginRight="12dp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/holo_green_light"
-            android:layout_marginBottom="12dp">
-            <TextView
-                android:id="@+id/fourth_text_view_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:theme="@style/NormalText"
-                android:textSize="24dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:gravity="center"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/fourth_edit_text_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:gravity="center"
-                android:textSize="24dp"
-                android:maxLength="3"
-                android:layout_marginRight="12dp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/holo_green_light"
-            android:layout_marginBottom="12dp">
-            <TextView
-                android:id="@+id/fiveth_text_view_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:theme="@style/NormalText"
-                android:textSize="24dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:gravity="center"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/five_edit_text_ability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:gravity="center"
-                android:textSize="24dp"
-                android:maxLength="3"
-                android:layout_marginRight="12dp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
