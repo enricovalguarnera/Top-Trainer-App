@@ -10,51 +10,76 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/heading_player_data_fragment"
-            android:theme="@style/Heading_h1"
-            android:layout_marginBottom="24dp"/>
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/NormalText"
-            android:text="@string/info_message_player_data_fragment"
-            android:layout_marginBottom="32dp"/>
+            android:orientation="vertical"
+            android:background="@drawable/background_linear_layout_white_rounded"
+            android:padding="6dp"
+            android:layout_marginBottom="24dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_player_data_fragment"
+                android:theme="@style/Heading_h1"
+                android:layout_marginBottom="24dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/NormalText"
+                android:text="@string/info_message_player_data_fragment" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Heading_h2"
-            android:text="@string/label_edit_text_player_name"
-            android:layout_marginBottom="6dp"/>
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/player_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="20dp"
-            android:hint="@string/placeholder_edit_text_player_name"
-            android:layout_marginBottom="24dp"
-            android:textColor="@color/black"/>
+            android:orientation="vertical"
+            android:background="@drawable/background_linear_layout_white_rounded"
+            android:padding="6dp"
+            android:layout_marginBottom="24dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Heading_h2"
-            android:text="@string/label_edit_text_player_age"
-            android:layout_marginBottom="6dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Heading_h2"
+                android:text="@string/label_edit_text_player_name"
+                android:layout_marginBottom="6dp"/>
 
-        <EditText
-            android:id="@+id/player_age"
+            <EditText
+                android:id="@+id/player_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="20dp"
+                android:hint="@string/placeholder_edit_text_player_name"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textSize="20dp"
-            android:layout_marginBottom="24dp"
-            android:textColor="@color/black"/>
+            android:orientation="vertical"
+            android:background="@drawable/background_linear_layout_white_rounded"
+            android:padding="6dp"
+            android:layout_marginBottom="24dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Heading_h2"
+                android:text="@string/label_edit_text_player_age"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/player_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20dp"
+                android:hint="@string/placeholder_edit_text_player_age"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
 
 
         <LinearLayout
@@ -63,7 +88,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="36dp">
+            android:layout_marginBottom="36dp"
+            android:background="@drawable/background_linear_layout_white_rounded"
+            android:padding="6dp">
 
             <TextView
                 android:layout_width="match_parent"

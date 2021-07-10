@@ -22,8 +22,9 @@
     <!--  TrainingPlayerDataFragment Fragment  -->
     <string name="heading_player_data_fragment">Dati giocatore</string>
     <string name="info_message_player_data_fragment">Inserisci i dati principali del giocatore per la quale vuoi trovare l\'allenamento migliore. Ricorda che il giocatore può avere al massimo 3 ruoli.</string>
-    <string name="label_edit_text_player_name">Nome giocatore</string>
+    <string name="label_edit_text_player_name">Nome</string>
     <string name="placeholder_edit_text_player_name">Inserisci nome giocatore</string>
+    <string name="placeholder_edit_text_player_age">Inserisci età giocatore</string>
     <string name="label_edit_text_player_age">Età</string>
     <string name="label_select_player_roles">Ruoli</string>
 

@@ -22,7 +22,8 @@
     <string name="heading_player_data_fragment">Player data</string>
     <string name="info_message_player_data_fragment">Insert the main data of the player you want to find the best training for. Remember that the player can have a maximum of 3 roles.</string>
     <string name="label_edit_text_player_name">Player name</string>
-    <string name="placeholder_edit_text_player_name">Inserisci nome giocatore</string>
+    <string name="placeholder_edit_text_player_name">Inser player name</string>
+    <string name="placeholder_edit_text_player_age">Insert player age</string>
     <string name="label_edit_text_player_age">Age</string>
     <string name="label_select_player_roles">Roles</string>
 
