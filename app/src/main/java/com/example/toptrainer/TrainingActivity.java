@@ -84,14 +84,20 @@ public class TrainingActivity extends AppCompatActivity {
             // Back button. This calls finish() on this activity and pops the back stack.
             super.onBackPressed();
             buttonBack.setEnabled(false);
+            buttonAllena.setEnabled(false);
         } else {
             // Otherwise, select the previous step.
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
             if (viewPager.getCurrentItem() == 0) {
                 buttonBack.setEnabled(false);
             }
+            if (viewPager.getCurrentItem() == 1) {
+                buttonNext.setEnabled(true);
+                buttonAllena.setEnabled(false);
+            }
             if (viewPager.getCurrentItem() == 2) {
                 buttonNext.setEnabled(true);
+                buttonAllena.setEnabled(false);
             }
         }
     }
@@ -191,7 +197,8 @@ public class TrainingActivity extends AppCompatActivity {
                 intent.putExtra("EXTRA_MESSAGE", args);
                 startActivity(intent);
             } else {
-
+                Toast toast = Toast.makeText(getApplicationContext(), "Editare tutti le abilità prima di andare avanti. Il valore delle abilità non può essere zero", Toast.LENGTH_LONG);
+                toast.show();
             }
         }
     }
