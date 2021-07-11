@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="top_trainer_green_primary">#29736b</color>
+    <color name="top_trainer_blue_primary">#0073e6</color>
+    <color name="top_trainer_blue_secondary">#1a8cff</color>
     <color name="top_trainer_green_secondary">#1a887b</color>
     <color name="top_trainer_green_accent">#ccae3d</color>
     <color name="top_trainer_yellow">#F7C90C</color>

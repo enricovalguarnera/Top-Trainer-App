@@ -76,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:textSize="20dp"
+                android:maxLength="2"
                 android:hint="@string/placeholder_edit_text_player_age"
                 android:textColor="@color/black"/>
 

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/green_grass_field_background"
     tools:context=".TrainingActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/green_grass_field_background"
         android:padding="24dp">
 
 
@@ -44,6 +44,8 @@
                     android:layout_weight="1"
                     android:onClick="goToPreviousStep"
                     android:text="@string/button_back_label"
+                    android:enabled="false"
+                    android:backgroundTint="@color/button_background_color_next_back"
                     android:theme="@style/ButtonPrimary" />
 
                 <Button
@@ -54,6 +56,7 @@
                     android:layout_marginRight="6dp"
                     android:layout_weight="1"
                     android:onClick="goToNextStep"
+                    android:backgroundTint="@color/button_background_color_next_back"
                     android:text="@string/button_next_label"
                     android:theme="@style/ButtonPrimary" />
 
@@ -69,7 +72,6 @@
                 android:enabled="false"
                 android:text="@string/button_allena_label"
                 android:onClick="goToTraining"
-                android:textColor="@color/button_background_training"
                 android:textSize="24dp" />
         </LinearLayout>
 
