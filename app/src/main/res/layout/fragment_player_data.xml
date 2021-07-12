@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/heading_player_data_fragment"
                 android:theme="@style/Heading_h1"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="12dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="vertical"
             android:background="@drawable/background_linear_layout_white_rounded"
             android:padding="6dp"
@@ -41,7 +42,8 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:theme="@style/Heading_h2"
                 android:text="@string/label_edit_text_player_name"
                 android:layout_marginBottom="6dp"/>
@@ -49,7 +51,8 @@
             <EditText
                 android:id="@+id/player_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:inputType="text"
                 android:textSize="20dp"
                 android:hint="@string/placeholder_edit_text_player_name"
@@ -58,14 +61,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="vertical"
             android:background="@drawable/background_linear_layout_white_rounded"
             android:padding="6dp"
             android:layout_marginBottom="24dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:theme="@style/Heading_h2"
                 android:text="@string/label_edit_text_player_age"
                 android:layout_marginBottom="6dp"/>
@@ -73,7 +78,8 @@
             <EditText
                 android:id="@+id/player_age"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:inputType="number"
                 android:textSize="20dp"
                 android:maxLength="2"
@@ -86,10 +92,9 @@
         <LinearLayout
             android:id="@+id/roles_vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:orientation="vertical"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="36dp"
             android:background="@drawable/background_linear_layout_white_rounded"
             android:padding="6dp">
 

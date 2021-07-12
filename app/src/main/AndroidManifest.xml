@@ -12,7 +12,8 @@
         <activity android:name=".ResultActivity"></activity>
         <activity
             android:name=".TrainingActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
