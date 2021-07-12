@@ -3,12 +3,13 @@
     <style name="Theme.TopTrainer" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/top_trainer_blue_primary</item>
-        <item name="colorPrimaryVariant">@color/top_trainer_yellow</item>
-        <item name="colorOnPrimary">@color/top_trainer_yellow</item>
+        <item name="colorPrimaryVariant">@color/top_trainer_blue_secondary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
         Secondary brand color.
         <item name="colorSecondary">@color/top_trainer_blue_primary</item>
-        <item name="colorSecondaryVariant">@color/top_trainer_yellow</item>
-        <item name="colorOnSecondary">@color/top_trainer_blue_primary</item>
+        <item name="colorSecondaryVariant">@color/top_trainer_blue_primary</item>
+        <item name="colorOnSecondary">@color/white</item>
         Status bar color.
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
