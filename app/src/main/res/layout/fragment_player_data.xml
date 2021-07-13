@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -114,50 +114,52 @@
                 android:layout_weight="1"
                 android:layout_marginBottom="4dp"
                 android:layout_marginTop="4dp">
+
                 <Button
                     android:id="@+id/button_gk"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/gk"
-                    android:textSize="18dp"
-                    android:textColor="@color/text_color_roles"
+                    android:theme="@style/RoleSelectionText"
                     android:backgroundTint="@color/button_background_gk"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:text="@string/gk"
+                    android:textColor="@color/text_color_roles"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"/>
+
                 <Button
                     android:id="@+id/button_dc"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dc"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_defence"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_dr"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dr"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_defence"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_dl"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dl"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_defence"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -173,44 +175,44 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/dmc"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_mc"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/mc"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_mr"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/mr"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_ml"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/ml"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -226,44 +228,44 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/amc"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_amr"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/amr"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_aml"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/aml"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_midfield"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
                 <Button
                     android:id="@+id/button_st"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/st"
-                    android:textSize="18dp"
+                    android:theme="@style/RoleSelectionText"
                     android:textColor="@color/text_color_roles"
                     android:backgroundTint="@color/button_background_forward"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"/>
             </LinearLayout>
 
 
@@ -271,4 +273,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
