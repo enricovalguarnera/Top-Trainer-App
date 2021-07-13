@@ -75,7 +75,7 @@
     <string name="heading_bar_gradient_training_normale">Normale</string>
     <string name="heading_bar_gradient_training_bad">Male</string>
     <string name="heading_bar_gradient_training_worst">Molto male</string>
-
+    <string name="button_label_vedi_tutti_allenamenti">Vedi tutti</string>
 
     <!-- Roles String  -->
     <string name="gk">GK</string>

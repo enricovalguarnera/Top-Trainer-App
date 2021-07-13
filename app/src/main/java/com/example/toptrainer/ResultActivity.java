@@ -1,5 +1,6 @@
 package com.example.toptrainer;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -7,6 +8,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
@@ -27,6 +30,13 @@ public class ResultActivity extends AppCompatActivity {
 
     private Map<String, String> abilityMap;             // mappa: key nome abilita, tipo di abilità (difesa, attacco, portiere, fisico e mentale)
     private Map<String, String> insertedMapAbility;     // mappa: key nome abilita, value valore inserito in fase di compilazione
+
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private TextView popupPGPTextview;
+    private Button popupPGPButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,6 +195,26 @@ public class ResultActivity extends AppCompatActivity {
         }
         
         return result;
+    }
+
+    // PGP: potential growth of the player
+    public void createNewPGPListDialog(View view) {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View pgpListPopupView = getLayoutInflater().inflate(R.layout.pgp_popup_layout, null);
+
+        popupPGPTextview = (TextView) pgpListPopupView.findViewById(R.id.textview_pgp_popup);
+        popupPGPButton = (Button) pgpListPopupView.findViewById(R.id.button_pgp_popup);
+
+        dialogBuilder.setView(pgpListPopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        popupPGPButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
 
