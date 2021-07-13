@@ -9,26 +9,25 @@
 
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
         android:orientation="vertical">
         <!-- activity_screen_slide.xml -->
         <androidx.viewpager2.widget.ViewPager2
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:layout_alignParentTop="true" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/activity_training_buttons"/>
 
 
         <LinearLayout
+            android:id="@+id/activity_training_buttons"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="bottom"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:orientation="vertical">
 
             <LinearLayout
@@ -72,6 +71,6 @@
                 android:onClick="goToTraining"
                 android:theme="@style/ButtonPrimary"/>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
