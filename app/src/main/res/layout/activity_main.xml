@@ -70,7 +70,7 @@
             android:theme="@style/ButtonPrimary"
             android:text="@string/button_trova_allenamento"
             android:layout_marginBottom="24dp"
-            android:onClick="sendMessage"/>
+            android:onClick="findTraining"/>
 
         <Button
             android:layout_width="match_parent"
