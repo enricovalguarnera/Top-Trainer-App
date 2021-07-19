@@ -65,8 +65,9 @@
     <string name="heading_percentage_result_activity">Percentage %</string>
     <string name="heading_best_training_result_activity">Best training</string>
     <string name="info_message_result_percentuali">Below are the total percentages for all of your player\'s skills and the percentage of white skills only.</string>
-    <string name="perc_totale_result_percentuali">Total perc.</string>
-    <string name="perc_white_result_percentuali">White abilities perc.</string>
+    <string name="perc_totale_result_percentuali">Total average.</string>
+    <string name="perc_white_result_percentuali">White abilities average</string>
+    <string name="best_pgp">Potenzial growth index</string>
     <string name="info_message_result_miglior_allenamento">Here is the best training for your player to perform. Remember that the best training is calculated taking into account a training session with the same type of training for all 6 slots.</string>
     <string name="heading_bar_gradient_training_top">Top</string>
     <string name="heading_bar_gradient_training_good">Good</string>

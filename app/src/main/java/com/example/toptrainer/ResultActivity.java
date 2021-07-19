@@ -35,6 +35,7 @@ public class ResultActivity extends AppCompatActivity {
     private AlertDialog dialog;
     private TextView popupPGPTextview;
     private Button popupPGPButton;
+    private TextView bestPGPTextview;
 
 
 
@@ -51,6 +52,7 @@ public class ResultActivity extends AppCompatActivity {
         resultTraining = (TextView) findViewById(R.id.result_training);
         totalAverage = (TextView) findViewById(R.id.total_average);
         whiteAverage = (TextView) findViewById(R.id.white_average);
+        bestPGPTextview = (TextView) findViewById(R.id.best_pgp);
 
 
         // calcolo la percentuale totale e mostro la percentuale sulla TextView
@@ -102,6 +104,8 @@ public class ResultActivity extends AppCompatActivity {
         Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
         String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
 
+        //setto la crescita potenziale del migliore allenamento
+        bestPGPTextview.setText(String.valueOf(crescitaPotenzialeMax.getValue()));
         // setto il colore e la stringa per visualizzare l'allenamento migliore e la bonta della crescita potenziale
         setTrainingColor(crescitaPotenzialeMax.getValue());
         resultTraining.setText(trainingResultString);
@@ -402,7 +406,7 @@ public class ResultActivity extends AppCompatActivity {
         fermaLattaccante.add("contrasto");
         fermaLattaccante.add("marcatura");
         fermaLattaccante.add("coraggio");
-        result.put("ferma_l_attaccante", fermaLattaccante);
+        result.put("ferma_l'_attaccante", fermaLattaccante);
 
         List<String> difesaSuiCross = new ArrayList<>();
         difesaSuiCross.add("cross");
@@ -410,7 +414,7 @@ public class ResultActivity extends AppCompatActivity {
         difesaSuiCross.add("colpo_di_testa");
         difesaSuiCross.add("coraggio");
         difesaSuiCross.add("elevazione");
-        result.put("difesaSuiCross", difesaSuiCross);
+        result.put("difesa_sui_cross", difesaSuiCross);
 
         List<String> analisiDeiVideo = new ArrayList<>();
         analisiDeiVideo.add("creativita");
@@ -473,7 +477,7 @@ public class ResultActivity extends AppCompatActivity {
         testNavetta.add("velocita");
         testNavetta.add("coraggio");
         testNavetta.add("agilita");
-        result.put("testNavetta", testNavetta);
+        result.put("test_navetta", testNavetta);
 
         List<String> saltoAOstacoli = new ArrayList<>();
         saltoAOstacoli.add("aggressivita");

@@ -67,8 +67,9 @@
     <string name="heading_percentage_result_activity">Percentuali %</string>
     <string name="heading_best_training_result_activity">Miglior allenamento</string>
     <string name="info_message_result_percentuali">Di seguito le percentuali totali per tutte le abilità del tuo giocatore e la percentuale delle sole abilità bianche.</string>
-    <string name="perc_totale_result_percentuali">Perc. totale</string>
-    <string name="perc_white_result_percentuali">Perc. abilità bianche</string>
+    <string name="perc_totale_result_percentuali">Media totale</string>
+    <string name="perc_white_result_percentuali">Media abilità bianche</string>
+    <string name="best_pgp">Crescita potenziale:</string>
     <string name="info_message_result_miglior_allenamento">Ecco il miglior allenamento da eseguire per il tuo giocatore. Ricorca che il miglior allenamento è calcolato tenendo conto di una sessione di allenamento con tipologia di allenamento uguale per tutti e 6 gli slot.</string>
     <string name="heading_bar_gradient_training_top">Top</string>
     <string name="heading_bar_gradient_training_good">Buono</string>
