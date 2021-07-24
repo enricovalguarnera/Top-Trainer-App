@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,9 +47,10 @@ public class ResultActivity extends AppCompatActivity {
 
     private ListView pgpListView;
 
-    private String trainingName[] = {"primo", "secondo", "terzo"};
-    private String trainingValue[] = {"primo", "secondo", "terzo"};
-    private int trainingColor[] = {1,2,3};
+    private String trainingName[];
+    private Float trainingValue[];
+    private Float trainingColor[];
+
 
 
 
@@ -114,6 +116,11 @@ public class ResultActivity extends AppCompatActivity {
             crescitePotenziali.put(trainingName, 180 - calculateAverage(abilitiesValue));
         }
 
+        // questo è il punto dove settare gli array di stringhe
+        trainingName = getFormattedArrayString(crescitePotenziali.keySet().toArray(new String[0]));
+        trainingValue = getFormattedValues(crescitePotenziali.values().toArray(new Float[0]));
+        trainingColor = crescitePotenziali.values().toArray(new Float[0]);
+
         Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
         String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
 
@@ -122,6 +129,32 @@ public class ResultActivity extends AppCompatActivity {
         // setto il colore e la stringa per visualizzare l'allenamento migliore e la bonta della crescita potenziale
         setTrainingColor(crescitaPotenzialeMax.getValue());
         resultTraining.setText(trainingResultString);
+    }
+
+    private Float[] getFormattedValues(Float[] array) {
+        Float[] result = new Float[array.length];
+
+        DecimalFormat df = new DecimalFormat("##.##");
+        df.setMaximumFractionDigits(2);
+
+        for (int i=0; i<array.length; i++) {
+            if (String.valueOf(array[i]) == "NaN") {
+                result[i] = new Float(0);
+            } else {
+                result[i] = Float.valueOf(df.format(array[i]).replace(",","."));
+            }
+        }
+        return result;
+    }
+
+    private String[] getFormattedArrayString(String[] array) {
+        String[] result = new String[array.length];
+        for (int i=0; i<array.length; i++) {
+            if (array[i] != null) {
+                result[i] = formatTrainingString(array[i]);
+            }
+        }
+        return result;
     }
 
     private void setTrainingColor(Float value) {
@@ -510,10 +543,10 @@ public class ResultActivity extends AppCompatActivity {
     class PgpAdapter extends ArrayAdapter<String> {
         Context context;
         String trainings[];
-        String pgpValues[];
-        int colors[];
+        Float pgpValues[];
+        Float colors[];
 
-        PgpAdapter (Context context, String trainings[], String pgpValues[], int colors[]) {
+        PgpAdapter (Context context, String trainings[], Float pgpValues[], Float colors[]) {
             super(context, R.layout.pgp_list_item, R.id.training_name_pgp_list_item, trainings);
             this.context = context;
             this.trainings = trainings;
@@ -531,7 +564,7 @@ public class ResultActivity extends AppCompatActivity {
             TextView trainingColorTextView = row.findViewById(R.id.training_color_pgp_list_item);
 
             trainingNameTextview.setText(trainings[position]);
-            pgpValuesTextview.setText(pgpValues[position]);
+            pgpValuesTextview.setText(String.valueOf(pgpValues[position]));
             trainingColorTextView.setText(String.valueOf(colors[position]));
 
             return row;
