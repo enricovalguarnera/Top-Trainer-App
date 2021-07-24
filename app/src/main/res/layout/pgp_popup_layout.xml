@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <TextView
-        android:id="@+id/textview_pgp_popup"
+        android:id="@+id/textview_pgp_popup_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Heading_h1"
+        android:text="Esercizi"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/textview_pgp_popup_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/NormalText"
+        android:text="Lista di tutti gli esercizi"
+        android:layout_marginBottom="16dp"/>
+
+
+    <ListView
+        android:id="@+id/pgp_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Testo di prova"
-        android:textSize="36dp"/>
+        android:layout_marginBottom="24dp"/>
 
 
     <Button
@@ -16,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chiudi"
+        android:layout_gravity="center"
         android:theme="@style/ButtonPrimary"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

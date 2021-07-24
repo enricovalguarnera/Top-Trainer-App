@@ -1,15 +1,22 @@
 package com.example.toptrainer;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
@@ -36,6 +43,12 @@ public class ResultActivity extends AppCompatActivity {
     private TextView popupPGPTextview;
     private Button popupPGPButton;
     private TextView bestPGPTextview;
+
+    private ListView pgpListView;
+
+    private String trainingName[] = {"primo", "secondo", "terzo"};
+    private String trainingValue[] = {"primo", "secondo", "terzo"};
+    private int trainingColor[] = {1,2,3};
 
 
 
@@ -206,12 +219,17 @@ public class ResultActivity extends AppCompatActivity {
         dialogBuilder = new AlertDialog.Builder(this);
         final View pgpListPopupView = getLayoutInflater().inflate(R.layout.pgp_popup_layout, null);
 
-        popupPGPTextview = (TextView) pgpListPopupView.findViewById(R.id.textview_pgp_popup);
+        //popupPGPTextview = (TextView) pgpListPopupView.findViewById(R.id.textview_pgp_popup_title);
         popupPGPButton = (Button) pgpListPopupView.findViewById(R.id.button_pgp_popup);
 
         dialogBuilder.setView(pgpListPopupView);
         dialog = dialogBuilder.create();
         dialog.show();
+
+        // inizializzo la list view per visualizzare la lista degli allenamenti
+        pgpListView = (ListView) pgpListPopupView.findViewById(R.id.pgp_list_view);
+        PgpAdapter pgpAdapter = new PgpAdapter(this, trainingName, trainingValue, trainingColor);
+        pgpListView.setAdapter(pgpAdapter);
 
         popupPGPButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -487,6 +505,37 @@ public class ResultActivity extends AppCompatActivity {
         result.put("salto_a_ostacoli", saltoAOstacoli);
 
         return result;
+    }
+
+    class PgpAdapter extends ArrayAdapter<String> {
+        Context context;
+        String trainings[];
+        String pgpValues[];
+        int colors[];
+
+        PgpAdapter (Context context, String trainings[], String pgpValues[], int colors[]) {
+            super(context, R.layout.pgp_list_item, R.id.training_name_pgp_list_item, trainings);
+            this.context = context;
+            this.trainings = trainings;
+            this.pgpValues = pgpValues;
+            this.colors = colors;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View row = layoutInflater.inflate(R.layout.pgp_list_item, parent, false);
+            TextView trainingNameTextview = row.findViewById(R.id.training_name_pgp_list_item);
+            TextView pgpValuesTextview = row.findViewById(R.id.training_pgp_value_list_item);
+            TextView trainingColorTextView = row.findViewById(R.id.training_color_pgp_list_item);
+
+            trainingNameTextview.setText(trainings[position]);
+            pgpValuesTextview.setText(pgpValues[position]);
+            trainingColorTextView.setText(String.valueOf(colors[position]));
+
+            return row;
+        }
     }
 
 }
