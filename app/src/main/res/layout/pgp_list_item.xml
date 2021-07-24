@@ -22,10 +22,8 @@
 
     <TextView
         android:id="@+id/training_color_pgp_list_item"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="@string/perc_totale_result_percentuali"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:theme="@style/NormalText"/>
 
 </LinearLayout>

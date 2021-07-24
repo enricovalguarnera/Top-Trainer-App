@@ -75,6 +75,7 @@
     <string name="heading_bar_gradient_training_bad">Bad</string>
     <string name="heading_bar_gradient_training_worst">Worst</string>
     <string name="button_label_vedi_tutti_allenamenti">View all</string>
+    <string name="popup_close_button">Close</string>
 
     <!-- Roles String  -->
     <string name="gk">GK</string>

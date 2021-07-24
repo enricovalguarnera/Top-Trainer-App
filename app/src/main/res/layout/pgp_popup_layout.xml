@@ -1,41 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/textview_pgp_popup_title"
+    <LinearLayout
+        android:id="@+id/heading_bar_pgp_popup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Heading_h1"
-        android:text="Esercizi"
-        android:layout_marginBottom="4dp"/>
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/textview_pgp_popup_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/NormalText"
-        android:text="Lista di tutti gli esercizi"
-        android:layout_marginBottom="16dp"/>
+        <TextView
+            android:id="@+id/textview_pgp_popup_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Heading_h1"
+            android:text="Esercizi"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/textview_pgp_popup_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/NormalText"
+            android:text="Lista di tutti gli esercizi" />
+
+    </LinearLayout>
 
 
     <ListView
         android:id="@+id/pgp_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="24dp"/>
+        android:layout_below="@id/heading_bar_pgp_popup"
+        android:layout_above="@id/button_pgp_popup_linear_layout"
+        android:layout_marginBottom="20dp"/>
 
 
-    <Button
-        android:id="@+id/button_pgp_popup"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/button_pgp_popup_linear_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chiudi"
-        android:layout_gravity="center"
-        android:theme="@style/ButtonPrimary"/>
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+        <Button
+            android:id="@+id/button_pgp_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chiudi"
+            android:theme="@style/ButtonPrimary"/>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

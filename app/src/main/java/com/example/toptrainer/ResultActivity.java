@@ -49,7 +49,7 @@ public class ResultActivity extends AppCompatActivity {
 
     private String trainingName[];
     private Float trainingValue[];
-    private Float trainingColor[];
+    private String trainingColor[];
 
 
 
@@ -119,7 +119,7 @@ public class ResultActivity extends AppCompatActivity {
         // questo è il punto dove settare gli array di stringhe
         trainingName = getFormattedArrayString(crescitePotenziali.keySet().toArray(new String[0]));
         trainingValue = getFormattedValues(crescitePotenziali.values().toArray(new Float[0]));
-        trainingColor = crescitePotenziali.values().toArray(new Float[0]);
+        trainingColor = getHexaColorForPGP(crescitePotenziali.values().toArray(new Float[0]));
 
         Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
         String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
@@ -129,6 +129,26 @@ public class ResultActivity extends AppCompatActivity {
         // setto il colore e la stringa per visualizzare l'allenamento migliore e la bonta della crescita potenziale
         setTrainingColor(crescitaPotenzialeMax.getValue());
         resultTraining.setText(trainingResultString);
+    }
+
+    private String[] getHexaColorForPGP(Float[] array) {
+        String[] result = new String[array.length];
+
+        for (int i=0; i<array.length; i++) {
+            if (array[i] >= 100) {
+                result[i] = "#00cc44";
+            } else if (array[i] >= 80 && array[i] < 100) {
+                result[i] = "#ffff00";
+            } else if (array[i] >= 60 && array[i] < 80) {
+                result[i] = "#ffbf00";
+            } else if (array[i] >= 20 && array[i] < 60) {
+                result[i] = "#ff8000";
+            } else {
+                result[i] = "#ff3300";
+            }
+        }
+
+        return result;
     }
 
     private Float[] getFormattedValues(Float[] array) {
@@ -544,9 +564,9 @@ public class ResultActivity extends AppCompatActivity {
         Context context;
         String trainings[];
         Float pgpValues[];
-        Float colors[];
+        String colors[];
 
-        PgpAdapter (Context context, String trainings[], Float pgpValues[], Float colors[]) {
+        PgpAdapter (Context context, String trainings[], Float pgpValues[], String colors[]) {
             super(context, R.layout.pgp_list_item, R.id.training_name_pgp_list_item, trainings);
             this.context = context;
             this.trainings = trainings;
@@ -565,7 +585,7 @@ public class ResultActivity extends AppCompatActivity {
 
             trainingNameTextview.setText(trainings[position]);
             pgpValuesTextview.setText(String.valueOf(pgpValues[position]));
-            trainingColorTextView.setText(String.valueOf(colors[position]));
+            trainingColorTextView.setBackgroundColor(Color.parseColor(colors[position]));
 
             return row;
         }
