@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,9 +23,13 @@ import android.widget.TextView;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -108,13 +113,20 @@ public class ResultActivity extends AppCompatActivity {
             String trainingName = entry.getKey();
             // ciclo le abilità all'interno del training i
             List<Integer> abilitiesValue = new ArrayList<>();
-            for (int i=0; i < trainingAbilities.size() - 1 ; i++) {
+            for (int i=0; i < trainingAbilities.size() ; i++) {
                 if (insertedMapAbility.get(trainingAbilities.get(i)) != null) {
                     abilitiesValue.add(Integer.valueOf(insertedMapAbility.get(trainingAbilities.get(i))));
                 }
             }
-            crescitePotenziali.put(trainingName, 180 - calculateAverage(abilitiesValue));
+
+            float average = calculateAverage(abilitiesValue);
+            if (!Float.isNaN(average)) {
+                crescitePotenziali.put(trainingName, 180 - calculateAverage(abilitiesValue));
+            }
+     
         }
+
+        crescitePotenziali = sortPGP(crescitePotenziali);
 
         // questo è il punto dove settare gli array di stringhe
         trainingName = getFormattedArrayString(crescitePotenziali.keySet().toArray(new String[0]));
@@ -129,6 +141,32 @@ public class ResultActivity extends AppCompatActivity {
         // setto il colore e la stringa per visualizzare l'allenamento migliore e la bonta della crescita potenziale
         setTrainingColor(crescitaPotenzialeMax.getValue());
         resultTraining.setText(trainingResultString);
+    }
+
+    private Map<String, Float> sortPGP(Map<String, Float> crescitePotenziali) {
+        List<String> mapKeys = new ArrayList<>(crescitePotenziali.keySet());
+        List<Float> mapValues = new ArrayList<>(crescitePotenziali.values());
+        Collections.sort(mapValues, Collections.reverseOrder());
+
+        LinkedHashMap<String, Float> sortedMap = new LinkedHashMap<>();
+
+        Iterator<Float> valueIt = mapValues.iterator();
+        while (valueIt.hasNext()) {
+            Float val = valueIt.next();
+
+            String key = getKeyByValue(crescitePotenziali, val);
+            sortedMap.put(key, val);
+        }
+        return sortedMap;
+    }
+
+    public static <T, E> T getKeyByValue(Map<T, E> map, E value) {
+        for (Map.Entry<T, E> entry : map.entrySet()) {
+            if (value == entry.getValue()) {
+                return entry.getKey();
+            }
+        }
+        return null;
     }
 
     private String[] getHexaColorForPGP(Float[] array) {
