@@ -73,9 +73,10 @@
     <string name="info_message_result_miglior_allenamento">Ecco il miglior allenamento da eseguire per il tuo giocatore. Ricorca che il miglior allenamento è calcolato tenendo conto di una sessione di allenamento con tipologia di allenamento uguale per tutti e 6 gli slot.</string>
     <string name="heading_bar_gradient_training_top">Top</string>
     <string name="heading_bar_gradient_training_good">Buono</string>
+    <string name="heading_bar_gradient_training_bene">Bene</string>
     <string name="heading_bar_gradient_training_normale">Normale</string>
     <string name="heading_bar_gradient_training_bad">Male</string>
-    <string name="heading_bar_gradient_training_worst">Molto male</string>
+    <string name="heading_bar_gradient_training_worst">N/C</string>
     <string name="button_label_vedi_tutti_allenamenti">Vedi tutti</string>
     <string name="popup_close_button">Chiudi</string>
 

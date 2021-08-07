@@ -164,7 +164,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:background="#ffff00"
+                    android:background="#66ff33"
                     android:text="@string/heading_bar_gradient_training_good"
                     android:theme="@style/Heading_h1"
                     android:textSize="16dp"
@@ -173,8 +173,8 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:background="#ffbf00"
-                    android:text="@string/heading_bar_gradient_training_normale"
+                    android:background="#c6ff1a"
+                    android:text="@string/heading_bar_gradient_training_bene"
                     android:theme="@style/Heading_h1"
                     android:textSize="16dp"
                     android:gravity="center"/>
@@ -182,12 +182,21 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:background="#ff8000"
-                    android:text="@string/heading_bar_gradient_training_bad"
+                    android:background="#ffff00"
+                    android:text="@string/heading_bar_gradient_training_normale"
                     android:theme="@style/Heading_h1"
                     android:textSize="16dp"
                     android:gravity="center"/>
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ff8000"
+                    android:gravity="center"
+                    android:text="@string/heading_bar_gradient_training_bad"
+                    android:textSize="16dp"
+                    android:theme="@style/Heading_h1" />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

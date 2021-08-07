@@ -71,6 +71,7 @@
     <string name="info_message_result_miglior_allenamento">Here is the best training for your player to perform. Remember that the best training is calculated taking into account a training session with the same type of training for all 6 slots.</string>
     <string name="heading_bar_gradient_training_top">Top</string>
     <string name="heading_bar_gradient_training_good">Good</string>
+    <string name="heading_bar_gradient_training_bene">Fine</string>
     <string name="heading_bar_gradient_training_normale">Normal</string>
     <string name="heading_bar_gradient_training_bad">Bad</string>
     <string name="heading_bar_gradient_training_worst">Worst</string>

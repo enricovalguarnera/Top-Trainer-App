@@ -174,15 +174,17 @@ public class ResultActivity extends AppCompatActivity {
 
         for (int i=0; i<array.length; i++) {
             if (array[i] >= 100) {
-                result[i] = "#00cc44";
+                result[i] = "#00cc44";  // verde scuro
             } else if (array[i] >= 80 && array[i] < 100) {
-                result[i] = "#ffff00";
+                result[i] = "#66ff33";  // verde chiaro
             } else if (array[i] >= 60 && array[i] < 80) {
-                result[i] = "#ffbf00";
-            } else if (array[i] >= 20 && array[i] < 60) {
-                result[i] = "#ff8000";
-            } else {
-                result[i] = "#ff3300";
+                result[i] = "#c6ff1a";  // verde giallo
+            } else if (array[i] >= 40 && array[i] < 60) {
+                result[i] = "#ffff00"; // giallo
+            } else if (array[i] > 0 && array[i] < 40) {
+                result[i] = "#ff8000"; // arancione
+            } else if (array[i] <= 0) {
+                result[i] = "#ff3300"; // nero o rosso
             }
         }
 
@@ -215,16 +217,28 @@ public class ResultActivity extends AppCompatActivity {
         return result;
     }
 
+    /*
+    *
+    Top: verde scuro 00cc44
+    Good: verde chiaro 66ff33
+    Fine: verde giallino c6ff1a
+    Normal: giallo ffff00
+    Bad: orange ff8000
+    Game over N.C.: rosso ff3300
+* */
+
     private void setTrainingColor(Float value) {
         if (value >= 100) {
             resultTraining.setBackgroundColor(Color.parseColor("#00cc44"));
         } else if (value >= 80 && value < 100) {
-            resultTraining.setBackgroundColor(Color.parseColor("#ffff00"));
+            resultTraining.setBackgroundColor(Color.parseColor("#66ff33"));
         } else if (value >= 60 && value < 80) {
-            resultTraining.setBackgroundColor(Color.parseColor("#ffbf00"));
-        } else if (value >= 20 && value < 60) {
+            resultTraining.setBackgroundColor(Color.parseColor("#c6ff1a"));
+        } else if (value >= 40 && value < 60) {
+            resultTraining.setBackgroundColor(Color.parseColor("#ffff00"));
+        } else if (value > 0 && value < 40) {
             resultTraining.setBackgroundColor(Color.parseColor("#ff8000"));
-        } else {
+        } else if (value < 0)  {
             resultTraining.setBackgroundColor(Color.parseColor("#ff3300"));
         }
     }
