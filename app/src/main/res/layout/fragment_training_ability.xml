@@ -69,10 +69,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:gravity="center"
                     android:textSize="24dp"
-                    android:maxLength="3"
+                    android:maxLength="4"
                     android:layout_marginRight="12dp"
                     android:textColor="@color/black"/>
 
@@ -95,10 +95,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:gravity="center"
                     android:textSize="24dp"
-                    android:maxLength="3"
+                    android:maxLength="4"
                     android:layout_marginRight="12dp"
                     android:textColor="@color/black"/>
 
@@ -121,10 +121,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:gravity="center"
                     android:textSize="24dp"
-                    android:maxLength="3"
+                    android:maxLength="4"
                     android:layout_marginRight="12dp"
                     android:textColor="@color/black"/>
 
@@ -147,10 +147,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:gravity="center"
                     android:textSize="24dp"
-                    android:maxLength="3"
+                    android:maxLength="4"
                     android:layout_marginRight="12dp"
                     android:textColor="@color/black"/>
 
@@ -173,10 +173,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:gravity="center"
                     android:textSize="24dp"
-                    android:maxLength="3"
+                    android:maxLength="4"
                     android:layout_marginRight="12dp"
                     android:textColor="@color/black"/>
 
