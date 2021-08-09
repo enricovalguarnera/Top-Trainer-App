@@ -76,6 +76,10 @@
     <string name="heading_bar_gradient_training_bad">Bad</string>
     <string name="heading_bar_gradient_training_worst">Worst</string>
     <string name="button_label_vedi_tutti_allenamenti">View all</string>
+    <string name="popup_title">All trainings</string>
+    <string name="training_name_legend_popup_list">Training</string>
+    <string name="training_value_legend_popup_list">CP</string>
+    <string name="color_legend_popup_list">Quality</string>
     <string name="popup_close_button">Close</string>
 
     <!-- Roles String  -->

@@ -78,7 +78,12 @@
     <string name="heading_bar_gradient_training_bad">Male</string>
     <string name="heading_bar_gradient_training_worst">N/C</string>
     <string name="button_label_vedi_tutti_allenamenti">Vedi tutti</string>
+    <string name="popup_title">Tutti gli esercizi</string>
+    <string name="training_name_legend_popup_list">Esercizio</string>
+    <string name="training_value_legend_popup_list">CP</string>
+    <string name="color_legend_popup_list">Qualità</string>
     <string name="popup_close_button">Chiudi</string>
+<!--    <string name="popup_subtitle">Chiudi</string>-->
 
     <!-- Roles String  -->
     <string name="gk">GK</string>

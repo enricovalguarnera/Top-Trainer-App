@@ -19,15 +19,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/Heading_h1"
-            android:text="Esercizi"
-            android:layout_marginBottom="4dp"/>
+            android:text="@string/popup_title"
+            android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:id="@+id/textview_pgp_popup_message"
+<!--        <TextView-->
+<!--            android:id="@+id/textview_pgp_popup_message"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:theme="@style/NormalText"-->
+<!--            android:text="Lista di tutti gli esercizi" />-->
+
+        <LinearLayout
+            android:id="@+id/row_titles_pgp_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/NormalText"
-            android:text="Lista di tutti gli esercizi" />
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:textStyle="bold"
+                android:text="@string/training_name_legend_popup_list"
+                android:theme="@style/NormalText"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textStyle="bold"
+                android:text="@string/training_value_legend_popup_list"
+                android:theme="@style/NormalText"/>
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:textStyle="bold"
+                android:text="@string/color_legend_popup_list"
+                android:theme="@style/NormalText"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
