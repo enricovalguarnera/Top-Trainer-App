@@ -498,6 +498,7 @@ public class ResultActivity extends AppCompatActivity {
         pressing.add("contrasto");
         pressing.add("marcatura");
         pressing.add("posizionamento");
+        pressing.add("coraggio");
         result.put("pressing", pressing);
 
         List<String> torello = new ArrayList<>();
