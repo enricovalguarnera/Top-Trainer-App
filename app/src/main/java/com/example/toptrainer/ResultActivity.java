@@ -175,7 +175,7 @@ public class ResultActivity extends AppCompatActivity {
 
         for (int i=0; i<array.length; i++) {
             if (array[i] >= 100) {
-                result[i] = "#00cc44";  // verde scuro
+                result[i] = "#1CA349";  // verde scuro
             } else if (array[i] >= 80 && array[i] < 100) {
                 result[i] = "#66ff33";  // verde chiaro
             } else if (array[i] >= 60 && array[i] < 80) {
@@ -228,7 +228,7 @@ public class ResultActivity extends AppCompatActivity {
 
     /*
     *
-    Top: verde scuro 00cc44
+    Top: verde scuro 1CA349
     Good: verde chiaro 66ff33
     Fine: verde giallino c6ff1a
     Normal: giallo ffff00
@@ -238,7 +238,7 @@ public class ResultActivity extends AppCompatActivity {
 
     private void setTrainingColor(Float value) {
         if (value >= 100) {
-            resultTraining.setBackgroundColor(Color.parseColor("#00cc44"));
+            resultTraining.setBackgroundColor(Color.parseColor("#1CA349"));
         } else if (value >= 80 && value < 100) {
             resultTraining.setBackgroundColor(Color.parseColor("#66ff33"));
         } else if (value >= 60 && value < 80) {

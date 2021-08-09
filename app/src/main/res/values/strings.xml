@@ -81,7 +81,7 @@
     <string name="popup_title">Tutti gli esercizi</string>
     <string name="training_name_legend_popup_list">Esercizio</string>
     <string name="training_value_legend_popup_list">CP</string>
-    <string name="color_legend_popup_list">Qualità</string>
+    <string name="color_legend_popup_list">Lv.</string>
     <string name="popup_close_button">Chiudi</string>
 <!--    <string name="popup_subtitle">Chiudi</string>-->
 

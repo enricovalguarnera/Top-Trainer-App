@@ -19,7 +19,7 @@
     <color name="gk_button_color">#1aa3ff</color>
 
     <!-- Training range color - result activity -->
-    <color name="result_top_training">#00cc44</color>
+    <color name="result_top_training">#1CA349</color>
     <color name="result_good_training">#ffff00</color>
     <color name="result_normal_training">#ffbf00</color>
     <color name="result_bad_training">#ff8000</color>

@@ -126,7 +126,7 @@
                     android:textSize="20dp"
                     android:textStyle="bold"/>
             </LinearLayout>
-
+            <!-- Ex tonalità di verde:  #00cc44 -->
             <TextView
                 android:id="@+id/result_training"
                 android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                 android:textSize="38dp"
                 android:textFontWeight="600"
                 android:gravity="center"
-                android:background="#00cc44"
+                android:background="#1CA349"
                 android:textColor="#FFFFFF"
                 android:textAllCaps="true"
                 android:shadowColor="#000000"
@@ -155,7 +155,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:background="#00cc44"
+                    android:background="#1CA349"
                     android:text="@string/heading_bar_gradient_training_top"
                     android:theme="@style/Heading_h1"
                     android:textSize="16dp"
