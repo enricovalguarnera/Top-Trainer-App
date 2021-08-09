@@ -70,7 +70,7 @@
     <string name="perc_totale_result_percentuali">Media totale</string>
     <string name="perc_white_result_percentuali">Media abilità bianche</string>
     <string name="best_pgp">Crescita potenziale:</string>
-    <string name="info_message_result_miglior_allenamento">Ecco il miglior allenamento da eseguire per il tuo giocatore. Ricorca che il miglior allenamento è calcolato tenendo conto di una sessione di allenamento con tipologia di allenamento uguale per tutti e 6 gli slot.</string>
+    <string name="info_message_result_miglior_allenamento">Ecco il miglior allenamento da eseguire per il tuo giocatore. Ricorda che il miglior allenamento è calcolato tenendo conto di una sessione di allenamento con tipologia di allenamento uguale per tutti e 6 gli slot.</string>
     <string name="heading_bar_gradient_training_top">Top</string>
     <string name="heading_bar_gradient_training_good">Buono</string>
     <string name="heading_bar_gradient_training_bene">Bene</string>

@@ -137,7 +137,8 @@ public class ResultActivity extends AppCompatActivity {
         String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
 
         //setto la crescita potenziale del migliore allenamento
-        bestPGPTextview.setText(String.valueOf(crescitaPotenzialeMax.getValue()));
+        //TODO: arrotondare crescita potenziale massima
+        bestPGPTextview.setText(String.valueOf(getFormattedValues(crescitaPotenzialeMax.getValue())));
         // setto il colore e la stringa per visualizzare l'allenamento migliore e la bonta della crescita potenziale
         setTrainingColor(crescitaPotenzialeMax.getValue());
         resultTraining.setText(trainingResultString);
@@ -204,6 +205,14 @@ public class ResultActivity extends AppCompatActivity {
                 result[i] = Float.valueOf(df.format(array[i]).replace(",","."));
             }
         }
+        return result;
+    }
+
+    private Float getFormattedValues(Float value) {
+        Float result = null;
+        DecimalFormat df = new DecimalFormat("##.##");
+        df.setMaximumFractionDigits(2);
+        result = Float.valueOf(df.format(value).replace(",","."));
         return result;
     }
 
