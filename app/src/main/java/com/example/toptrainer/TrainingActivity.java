@@ -6,10 +6,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +21,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.toptrainer.db.TopTrainerReaderContract;
+import com.example.toptrainer.db.TopTrainerReaderDbHelper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -65,6 +72,39 @@ public class TrainingActivity extends AppCompatActivity {
             buttonBack = (Button) findViewById(R.id.button_find_training_back);
             buttonBack.setEnabled(false);
         }
+
+        TopTrainerReaderDbHelper dbHelper = new TopTrainerReaderDbHelper(this);
+        SQLiteDatabase dbReadable = dbHelper.getReadableDatabase();
+
+        String[] projection = {
+                BaseColumns._ID,
+                TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_NAME,
+                TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_TYPE,
+                TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_VALUE,
+        };
+
+        String selection = TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_NAME + " = ?";
+        Cursor cursor = dbReadable.query(
+                TopTrainerReaderContract.AbilityEntry.TABLE_NAME,   // The table to query
+                null,             // The array of columns to return (pass null to get all)
+                null,              // The columns for the WHERE clause
+                null,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null         // The sort order
+        );
+
+
+        List itemIds = new ArrayList<>();
+        List abilityValues = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            long itemId = cursor.getLong(
+                    cursor.getColumnIndexOrThrow(TopTrainerReaderContract.AbilityEntry._ID));
+            itemIds.add(itemId);
+            abilityValues.add(cursor.getInt(cursor.getColumnIndexOrThrow(TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_VALUE)));
+
+        }
+        cursor.close();
     }
 
     @Override

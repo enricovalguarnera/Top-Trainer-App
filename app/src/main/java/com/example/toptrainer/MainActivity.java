@@ -4,10 +4,14 @@ package com.example.toptrainer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +20,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.toptrainer.db.TopTrainerReaderContract;
+import com.example.toptrainer.db.TopTrainerReaderDbHelper;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -25,6 +31,9 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +53,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //Connection to database and writing ...
+        TopTrainerReaderDbHelper dbHelper = new TopTrainerReaderDbHelper(this);
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_NAME, "Tiro");
+        values.put(TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_TYPE, 1);
+        values.put(TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_VALUE, 180);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(TopTrainerReaderContract.AbilityEntry.TABLE_NAME, null, values);
     }
 
     private void createPersonalizeAd() {
