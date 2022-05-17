@@ -53,20 +53,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        //Connection to database and writing ...
-        TopTrainerReaderDbHelper dbHelper = new TopTrainerReaderDbHelper(this);
-        // Gets the data repository in write mode
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        // Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        values.put(TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_NAME, "Tiro");
-        values.put(TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_TYPE, 1);
-        values.put(TopTrainerReaderContract.AbilityEntry.COLUMN_ABILITY_VALUE, 180);
-
-        // Insert the new row, returning the primary key value of the new row
-        long newRowId = db.insert(TopTrainerReaderContract.AbilityEntry.TABLE_NAME, null, values);
     }
 
     private void createPersonalizeAd() {
