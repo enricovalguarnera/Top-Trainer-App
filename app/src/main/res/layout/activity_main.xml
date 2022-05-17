@@ -79,6 +79,24 @@
             android:text="@string/button_elenco_allenamenti"
             android:onClick="workInProgress"/>
 
-    </LinearLayout>
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigationview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:itemBackground="@color/button_background_gk"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:itemTextColor="@drawable/nav_item_color"
+                app:itemIconTint="@drawable/nav_item_color"
+                app:menu="@menu/navigation_menu"
+                android:layout_gravity="bottom">
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+        </FrameLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
