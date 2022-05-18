@@ -44,21 +44,16 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG_ADMOB = "---AD MOB----";
     private InterstitialAd mInterstitialAd;
-    private ActionBar toolbar;
-    private BottomNavigationView bottomNavigationView;
-    private String[] menus ={"Latest","Favorite","Cart","Profile"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = getSupportActionBar();
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigationview);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
-        toolbar.setTitle(menus[0]);
 
-        loadFragment(new LatestFragment());
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -70,30 +65,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void loadFragment(Fragment fragment){
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout,fragment);
-        fragmentTransaction.commit();
-    }
-
-
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()){
-                case R.id.item2:
-                    toolbar.setTitle(menus[1]);
+    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+                    switch (item.getItemId()) {
+                        case R.id.nav_home:
+                            selectedFragment = new HomeFragment();
+                            break;
+                        case R.id.nav_cons:
+                            selectedFragment = new ConsigliFragment();
+                            break;
+                        case R.id.nav_ass:
+                            selectedFragment = new AssistenzaFragment();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;
-                case R.id.item3:
-                    toolbar.setTitle(menus[2]);
-                    return true;
-                case R.id.item4:
-                    toolbar.setTitle(menus[3]);
-                    return true;
-            }
-            return false;
-        };
-    };
+                }
+            };
 
     private void createPersonalizeAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
