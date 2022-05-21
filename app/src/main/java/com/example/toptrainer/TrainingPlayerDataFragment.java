@@ -283,6 +283,20 @@ public class TrainingPlayerDataFragment extends Fragment {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean("GK_VALUE", buttonGK.isSelected());
+
+        // ruoli aggionati
+        editor.putBoolean("DC_VALUE", buttonDC.isSelected());
+        editor.putBoolean("DR_VALUE", buttonDR.isSelected());
+        editor.putBoolean("DL_VALUE", buttonDL.isSelected());
+        editor.putBoolean("DMC_VALUE", buttonDMC.isSelected());
+        editor.putBoolean("MC_VALUE", buttonMC.isSelected());
+        editor.putBoolean("MR_VALUE", buttonMR.isSelected());
+        editor.putBoolean("ML_VALUE", buttonML.isSelected());
+        editor.putBoolean("AMC_VALUE", buttonAMC.isSelected());
+        editor.putBoolean("AMR_VALUE", buttonAMR.isSelected());
+        editor.putBoolean("AML_VALUE", buttonAML.isSelected());
+        editor.putBoolean("ST_VALUE", buttonST.isSelected());
+
         editor.apply();
     }
 

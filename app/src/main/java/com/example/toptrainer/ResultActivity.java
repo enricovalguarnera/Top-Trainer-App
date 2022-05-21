@@ -2,14 +2,14 @@ package com.example.toptrainer;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.nfc.Tag;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,7 +29,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -56,9 +55,13 @@ public class ResultActivity extends AppCompatActivity {
     private Float trainingValue[];
     private String trainingColor[];
 
+    private Boolean isGK = false;
 
 
+    // TODO l'abilita bianca ad ogni allenamento sale di 2
+    // TODO l'abilita grigia ad ogni allenamento sale di 1
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +70,14 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("EXTRA_MESSAGE");
         ArrayList<Object> abilities = (ArrayList<Object>) args.getSerializable("ABILITY");
-        Boolean gkValue  = (Boolean) args.getBoolean("GK_VALUE");
+
+        isGK = isGoalKeeper(args);
+
+        List<String> keyOfSelectedRoles = getKeyOfSelectedRoles(args);
+        //Adesso abbiamo i ruoli selezionati
+        // TODO: definire set di abilita bianche e grigie per ogni ruolo
+        // TODO: Ottenere le abilita bianche e grigie per ruolo
+        // TODO: creare funzione di merging delle abilità
 
         resultTraining = (TextView) findViewById(R.id.result_training);
         totalAverage = (TextView) findViewById(R.id.total_average);
@@ -90,12 +100,50 @@ public class ResultActivity extends AppCompatActivity {
         // questo metodo associa le abilità inserite (arraylist abilities) con i nomi corretti. Per costruzione l'assaylist differenzia le posizioni delle abilita in base al ruolo
         // Nel caso sia un portiere nelle prime 10 posizioni ci saranno le abilità da portiere e nelle ultime 5 le abilità di tipo Fisico e Mentale.
         // Nel caso sia un giocatore di ruolo nelle prime 5 posizioni ci saranno le abilità di tipo difesa, nelle altre 5 le abilità di tipo attacco, nelle ultime 5 le abilita di tipo Fisico e Mentale
-        insertedMapAbility = associateInsertedAbilities(abilities, gkValue);
+        insertedMapAbility = associateInsertedAbilities(abilities, isGK);
 
 
         // calcolo il miglior allenamento
-        getBestTraining(insertedMapAbility, gkValue);
+        getBestTraining(insertedMapAbility, isGK);
     }
+
+    private List<String> getKeyOfSelectedRoles (Bundle args) {
+        List<String> rolesSelected = new ArrayList<>();
+        List<String> rolesKeyList = getRolesKey();  // ottengo la lista di chiavi per la SharedPreferences
+
+        for (int i=0; i<rolesKeyList.size(); i++) {
+            String roleKey = rolesKeyList.get(i);
+            Boolean roleValue  = (Boolean) args.getBoolean(roleKey);
+            if (roleValue == true) {
+                rolesSelected.add(roleKey);
+            }
+        }
+        return rolesSelected;
+    }
+
+    private Boolean isGoalKeeper(Bundle args) {
+        Boolean isGK = false;
+        isGK  = (Boolean) args.getBoolean("GK_VALUE");
+        return isGK;
+    }
+
+    private List<String> getRolesKey() {
+        List<String> rolesKeyList = new ArrayList<>();
+        rolesKeyList.add("GK_VALUE");
+        rolesKeyList.add("DC_VALUE");
+        rolesKeyList.add("DR_VALUE");
+        rolesKeyList.add("DL_VALUE");
+        rolesKeyList.add("DMC_VALUE");
+        rolesKeyList.add("MC_VALUE");
+        rolesKeyList.add("MR_VALUE");
+        rolesKeyList.add("ML_VALUE");
+        rolesKeyList.add("AMC_VALUE");
+        rolesKeyList.add("AMR_VALUE");
+        rolesKeyList.add("AML_VALUE");
+        rolesKeyList.add("ST_VALUE");
+        return rolesKeyList;
+    }
+
 
     public static float round(float d, int decimalPlace) {
         BigDecimal bd = new BigDecimal(Float.toString(d));
@@ -104,13 +152,13 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void getBestTraining(Map<String, String> insertedMapAbility, Boolean isGoalkeeper) {
-        Map<String, List<String>> trainingMap = getTrainingList();
-        Map<String, Float> crescitePotenziali = new HashMap<>();
+        Map<String, List<String>> trainingMap = getTrainingList();    // ottengo tutta la lista degli allenamenti
+        Map<String, Float> crescitePotenziali = new HashMap<>();     // creo struttura risultato per inserire tutte le crescite potenziali
 
         // ciclo tutti gli allenamenti
         for (Map.Entry<String,List<String>> entry : trainingMap.entrySet()) {
-            List<String> trainingAbilities = entry.getValue();
-            String trainingName = entry.getKey();
+            List<String> trainingAbilities = entry.getValue();  // prendo i nomi delle abilita dell'allenamento
+            String trainingName = entry.getKey(); // nome dell'allenamento
             // ciclo le abilità all'interno del training i
             List<Integer> abilitiesValue = new ArrayList<>();
             for (int i=0; i < trainingAbilities.size() ; i++) {
@@ -119,6 +167,8 @@ public class ResultActivity extends AppCompatActivity {
                 }
             }
 
+            // anche se la media è negativa la crescita potenziale deve essere calcolata
+            // calcolo la media delle abilità che ho trovato
             float average = calculateAverage(abilitiesValue);
             if (!Float.isNaN(average)) {
                 crescitePotenziali.put(trainingName, 180 - calculateAverage(abilitiesValue));
@@ -392,18 +442,21 @@ public class ResultActivity extends AppCompatActivity {
     private List<String> getNormalPlayerAbility() {
         List<String> normalAbilities = new ArrayList<>();
 
+        // difesa
         normalAbilities.add("contrasto");
         normalAbilities.add("marcatura");
         normalAbilities.add("posizionamento");
         normalAbilities.add("colpo_di_testa");
         normalAbilities.add("coraggio");
 
+        // attacco
         normalAbilities.add("passaggio");
         normalAbilities.add("dribbling");
         normalAbilities.add("cross");
         normalAbilities.add("tiro");
         normalAbilities.add("finalizzazione");
 
+        // fisico e mentale
         normalAbilities.add("forma");
         normalAbilities.add("forza");
         normalAbilities.add("aggressivita");
@@ -415,6 +468,7 @@ public class ResultActivity extends AppCompatActivity {
     private List<String> getGKPlayerAbility() {
         List<String> normalAbilities = new ArrayList<>();
 
+        // portiere
         normalAbilities.add("riflessi");
         normalAbilities.add("agilita");
         normalAbilities.add("anticipo");
@@ -425,6 +479,8 @@ public class ResultActivity extends AppCompatActivity {
         normalAbilities.add("pugni");
         normalAbilities.add("elevazione");
         normalAbilities.add("concentrazione");
+
+        // fisico e mentale
         normalAbilities.add("forma");
         normalAbilities.add("forza");
         normalAbilities.add("aggressivita");

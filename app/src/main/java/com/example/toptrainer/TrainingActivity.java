@@ -51,6 +51,7 @@ public class TrainingActivity extends AppCompatActivity {
     private Button buttonBack;
     private Button buttonAllena;
     private Button buttonNext;
+    private Button buttonTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class TrainingActivity extends AppCompatActivity {
 
         buttonAllena = (Button) findViewById(R.id.button_allena);
         buttonNext = (Button) findViewById(R.id.button_find_training_next);
+        buttonTest = (Button) findViewById(R.id.button_test);
 
 
         if (viewPager.getCurrentItem() == 0) {
@@ -97,6 +99,7 @@ public class TrainingActivity extends AppCompatActivity {
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
             if (viewPager.getCurrentItem() == 0) {
                 buttonBack.setEnabled(false);
+                buttonTest.setVisibility(View.GONE);
             }
             if (viewPager.getCurrentItem() == 1) {
                 buttonNext.setEnabled(true);
@@ -109,12 +112,27 @@ public class TrainingActivity extends AppCompatActivity {
         }
     }
 
+    public void goToPreviousStep (View view) {
+        viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+        if (viewPager.getCurrentItem() == 0) {
+            buttonBack.setEnabled(false);
+
+            buttonTest.setVisibility(View.GONE);
+        }
+        if (viewPager.getCurrentItem() == 2) {
+            buttonAllena.setEnabled(false);
+            buttonNext.setEnabled(true);
+        }
+    }
+
     public void goToNextStep (View view) {
         if (viewPager.getCurrentItem() == 0) {
             Boolean isValidStep = checkValidityData();
             if (isValidStep) {
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                 buttonBack.setEnabled(true);
+                buttonTest.setVisibility(View.VISIBLE);
+
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(), "Selezionare almeno un ruolo", Toast.LENGTH_LONG);
                 toast.show();
@@ -139,7 +157,7 @@ public class TrainingActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Editare tutti le abilità prima di andare avanti. Il valore delle abilità non può essere zero", Toast.LENGTH_LONG);
                 toast.show();
             }
-        }  // TODO la validazione del terzo step deve avvenire al click del bottone allena.
+        }
     }
 
     private void setAbilityData (Integer param) {
@@ -200,7 +218,8 @@ public class TrainingActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, ResultActivity.class);
                 Bundle args = new Bundle();
                 args.putSerializable("ABILITY", (Serializable) abilities);
-                args.putBoolean("GK_VALUE", getGkValue());
+                args = putRolesInfoIntoExtra(args);
+//                args.putBoolean("GK_VALUE", getGkValue());
                 intent.putExtra("EXTRA_MESSAGE", args);
                 startActivity(intent);
             } else {
@@ -208,6 +227,25 @@ public class TrainingActivity extends AppCompatActivity {
                 toast.show();
             }
         }
+    }
+
+    private Bundle putRolesInfoIntoExtra(Bundle args) {
+        Bundle resultArgs = args;
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        // ruoli aggionati
+        resultArgs.putBoolean("GK_VALUE", sharedPref.getBoolean("GK_VALUE", false));
+        resultArgs.putBoolean("DC_VALUE", sharedPref.getBoolean("DC_VALUE", false));
+        resultArgs.putBoolean("DR_VALUE", sharedPref.getBoolean("DR_VALUE", false));
+        resultArgs.putBoolean("DL_VALUE", sharedPref.getBoolean("DL_VALUE", false));
+        resultArgs.putBoolean("DMC_VALUE", sharedPref.getBoolean("DMC_VALUE", false));
+        resultArgs.putBoolean("MC_VALUE", sharedPref.getBoolean("MC_VALUE", false));
+        resultArgs.putBoolean("MR_VALUE", sharedPref.getBoolean("MR_VALUE", false));
+        resultArgs.putBoolean("ML_VALUE", sharedPref.getBoolean("ML_VALUE", false));
+        resultArgs.putBoolean("AMC_VALUE", sharedPref.getBoolean("AMC_VALUE", false));
+        resultArgs.putBoolean("AMR_VALUE", sharedPref.getBoolean("AMR_VALUE", false));
+        resultArgs.putBoolean("AML_VALUE", sharedPref.getBoolean("AML_VALUE", false));
+        resultArgs.putBoolean("ST_VALUE", sharedPref.getBoolean("ST_VALUE", false));
+        return resultArgs;
     }
 
     private Boolean getGkValue () {
@@ -288,16 +326,7 @@ public class TrainingActivity extends AppCompatActivity {
         return isValid;
     }
 
-    public void goToPreviousStep (View view) {
-        viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-        if (viewPager.getCurrentItem() == 0) {
-            buttonBack.setEnabled(false);
-        }
-        if (viewPager.getCurrentItem() == 2) {
-            buttonAllena.setEnabled(false);
-            buttonNext.setEnabled(true);
-        }
-    }
+
 
 
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter {

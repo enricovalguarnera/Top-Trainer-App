@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/green_grass_field_background"
     tools:context=".TrainingActivity">
 
 
@@ -70,6 +69,17 @@
                 android:text="@string/button_allena_label"
                 android:onClick="goToTraining"
                 android:theme="@style/ButtonPrimary"/>
+
+            <Button
+                android:id="@+id/button_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/button_background_color"
+                android:enabled="false"
+                android:visibility="gone"
+                android:text="Test"
+                android:theme="@style/ButtonPrimary"/>
+
         </LinearLayout>
     </RelativeLayout>
 
