@@ -74,6 +74,10 @@ public class ResultActivity extends AppCompatActivity {
         isGK = isGoalKeeper(args);
 
         List<String> keyOfSelectedRoles = getKeyOfSelectedRoles(args);
+
+        WhiteAndGrayModel whiteAndGrayModel = new WhiteAndGrayModel();
+        Map<String, List<String>> wgmGK = whiteAndGrayModel.getGKWhiteGrayAbilities();
+
         //Adesso abbiamo i ruoli selezionati
         // TODO: definire set di abilita bianche e grigie per ogni ruolo
         // TODO: Ottenere le abilita bianche e grigie per ruolo
