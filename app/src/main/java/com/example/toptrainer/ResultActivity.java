@@ -20,6 +20,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.toptrainer.model.RolesModel;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -72,11 +74,15 @@ public class ResultActivity extends AppCompatActivity {
         ArrayList<Object> abilities = (ArrayList<Object>) args.getSerializable("ABILITY");
 
         isGK = isGoalKeeper(args);
-
         List<String> keyOfSelectedRoles = getKeyOfSelectedRoles(args);
+        RolesModel rolesModel = new RolesModel(keyOfSelectedRoles, "white");
+        List<String> whiteAbilities = rolesModel.getWhiteOrGrayMergedAbilities();
 
-        WhiteAndGrayModel whiteAndGrayModel = new WhiteAndGrayModel();
-        Map<String, List<String>> wgmGK = whiteAndGrayModel.getGKWhiteGrayAbilities();
+//        WhiteAndGrayModel whiteAndGrayModel = new WhiteAndGrayModel(keyOfSelectedRoles);
+//        Map<String, List<String>> wgDC = whiteAndGrayModel.getDCWhiteGrayAbilities();
+//        Map<String, List<String>> wgAMC = whiteAndGrayModel.getAMCWhiteGrayAbilities();
+//        Map<String, List<String>> merged = WhiteAndGrayModel.getMergedWhiteAbilities("white", wgDC, wgAMC);
+
 
         //Adesso abbiamo i ruoli selezionati
         // TODO: definire set di abilita bianche e grigie per ogni ruolo
