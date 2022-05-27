@@ -19,10 +19,11 @@ public class RolesModel {
         if (rolesMap.size() == 1) {
             whiteOrGrayMergedAbilities = rolesMap.get(0).get(whiteOrGray);
         } else {
-            for (int i=0; i<keyOfSelectedRoles.size()-1; i++) {
-                whiteOrGrayMergedAbilities = WhiteAndGrayModel.getMergedWhiteOrGrayAbilities(whiteOrGray, rolesMap.get(i), rolesMap.get(i+1)).get(whiteOrGray);
-                // TODO questa logica non va. DEVE ESSERE SCRITTA MEGLIO. DEVE ESSERE UNA ASSEGNAZIONE ITERATIVA.
+            Map<String, List<String>> tmpList = rolesMap.get(0);
+            for (int i=0; i<keyOfSelectedRoles.size(); i++) {
+                tmpList = WhiteAndGrayModel.getMergedWhiteOrGrayAbilities(whiteOrGray, tmpList, rolesMap.get(i));
             }
+            whiteOrGrayMergedAbilities = tmpList.get(whiteOrGray);
         }
     }
 
