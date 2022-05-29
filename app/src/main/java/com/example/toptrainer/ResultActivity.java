@@ -60,8 +60,6 @@ public class ResultActivity extends AppCompatActivity {
     private Boolean isGK = false;
 
 
-    // TODO l'abilita bianca ad ogni allenamento sale di 2
-    // TODO l'abilita grigia ad ogni allenamento sale di 1
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -71,32 +69,22 @@ public class ResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("EXTRA_MESSAGE");
-        ArrayList<Object> abilities = (ArrayList<Object>) args.getSerializable("ABILITY");
+        ArrayList<Object> abilitiesInput = (ArrayList<Object>) args.getSerializable("ABILITY");
 
         isGK = isGoalKeeper(args);
         List<String> keyOfSelectedRoles = getKeyOfSelectedRoles(args);
         RolesModel rolesModel = new RolesModel(keyOfSelectedRoles, "white");
         List<String> whiteAbilities = rolesModel.getWhiteOrGrayMergedAbilities();
 
-//        WhiteAndGrayModel whiteAndGrayModel = new WhiteAndGrayModel(keyOfSelectedRoles);
-//        Map<String, List<String>> wgDC = whiteAndGrayModel.getDCWhiteGrayAbilities();
-//        Map<String, List<String>> wgAMC = whiteAndGrayModel.getAMCWhiteGrayAbilities();
-//        Map<String, List<String>> merged = WhiteAndGrayModel.getMergedWhiteAbilities("white", wgDC, wgAMC);
-
-
         //Adesso abbiamo i ruoli selezionati
-        // TODO: definire set di abilita bianche e grigie per ogni ruolo
-        // TODO: Ottenere le abilita bianche e grigie per ruolo
-        // TODO: creare funzione di merging delle abilità
 
         resultTraining = (TextView) findViewById(R.id.result_training);
         totalAverage = (TextView) findViewById(R.id.total_average);
         whiteAverage = (TextView) findViewById(R.id.white_average);
         bestPGPTextview = (TextView) findViewById(R.id.best_pgp);
 
-
         // calcolo la percentuale totale e mostro la percentuale sulla TextView
-        totalPercentage = getTotalPercentage(abilities);
+        totalPercentage = getTotalPercentage(abilitiesInput);
         if (totalPercentage != null && !Float.isNaN(totalPercentage)) {
             totalAverage.setText(String.valueOf(round(totalPercentage,2)) + "%");
         }
@@ -107,10 +95,10 @@ public class ResultActivity extends AppCompatActivity {
             whiteAverage.setText(String.valueOf(round(whitePercentage, 2)) + "%");
         }
 
-        // questo metodo associa le abilità inserite (arraylist abilities) con i nomi corretti. Per costruzione l'assaylist differenzia le posizioni delle abilita in base al ruolo
+        // questo metodo associa le abilità inserite (arraylist abilitiesInput) con i nomi corretti. Per costruzione l'assaylist differenzia le posizioni delle abilita in base al ruolo
         // Nel caso sia un portiere nelle prime 10 posizioni ci saranno le abilità da portiere e nelle ultime 5 le abilità di tipo Fisico e Mentale.
         // Nel caso sia un giocatore di ruolo nelle prime 5 posizioni ci saranno le abilità di tipo difesa, nelle altre 5 le abilità di tipo attacco, nelle ultime 5 le abilita di tipo Fisico e Mentale
-        insertedMapAbility = associateInsertedAbilities(abilities, isGK);
+        insertedMapAbility = associateInsertedAbilities(abilitiesInput, isGK);
 
 
         // calcolo il miglior allenamento
@@ -161,6 +149,12 @@ public class ResultActivity extends AppCompatActivity {
         return bd.floatValue();
     }
 
+
+    //TODO: il calolco delle crescite potenziali va bene cosi?
+    //TODO: la logica di peso con le bianche e grigie vale solo per il best training?
+    //TODO: la lista delle crescite potenziali deve essere ordinata sempre in maniera crescente?
+    //TODO: oppure ordiniamo in base all'ordine al miglior allenamento calcolato tramite ponderazione (peso bianche/grigie) ?
+
     private void getBestTraining(Map<String, String> insertedMapAbility, Boolean isGoalkeeper) {
         Map<String, List<String>> trainingMap = getTrainingList();    // ottengo tutta la lista degli allenamenti
         Map<String, Float> crescitePotenziali = new HashMap<>();     // creo struttura risultato per inserire tutte le crescite potenziali
@@ -169,6 +163,12 @@ public class ResultActivity extends AppCompatActivity {
         for (Map.Entry<String,List<String>> entry : trainingMap.entrySet()) {
             List<String> trainingAbilities = entry.getValue();  // prendo i nomi delle abilita dell'allenamento
             String trainingName = entry.getKey(); // nome dell'allenamento
+
+            //TODO: in questo punto dovrà essere implementata una logica di controllo
+            //TODO: per dare un peso alle abilita bianche piuttosto che le grigie.
+            // TODO l'abilita bianca ad ogni allenamento sale di 2
+            // TODO l'abilita grigia ad ogni allenamento sale di 1
+
             // ciclo le abilità all'interno del training i
             List<Integer> abilitiesValue = new ArrayList<>();
             for (int i=0; i < trainingAbilities.size() ; i++) {
@@ -181,7 +181,7 @@ public class ResultActivity extends AppCompatActivity {
             // calcolo la media delle abilità che ho trovato
             float average = calculateAverage(abilitiesValue);
             if (!Float.isNaN(average)) {
-                crescitePotenziali.put(trainingName, 180 - calculateAverage(abilitiesValue));
+                crescitePotenziali.put(trainingName, 180 - average);
             }
      
         }
@@ -371,8 +371,8 @@ public class ResultActivity extends AppCompatActivity {
         Integer result = null;
         return result;
     }
-    
-    private Map<String, String> associateInsertedAbilities (ArrayList<Object> abilities, Boolean isGoalkeeper) {
+
+    private Map<String, String> associateInsertedAbilities (ArrayList<Object> abilitiesInput, Boolean isGoalkeeper) {
         Map<String, String> result = new HashMap<>();
         List<String> playerAbilityModel;
         if (isGoalkeeper) {
@@ -381,8 +381,8 @@ public class ResultActivity extends AppCompatActivity {
             playerAbilityModel = getNormalPlayerAbility();
         }
 
-        for (int i=0; i < abilities.size(); i++) {
-            result.put(playerAbilityModel.get(i), (String) abilities.get(i));
+        for (int i=0; i < abilitiesInput.size(); i++) {
+            result.put(playerAbilityModel.get(i), (String) abilitiesInput.get(i));
         }
         
         return result;

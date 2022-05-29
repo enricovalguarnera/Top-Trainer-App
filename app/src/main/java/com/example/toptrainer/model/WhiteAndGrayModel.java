@@ -7,8 +7,6 @@ import java.util.Map;
 
 public class WhiteAndGrayModel {
 
-
-
     private Map<String, List<String>> GKWhiteGrayAbilities;
     private Map<String, List<String>> DCWhiteGrayAbilities;
     private Map<String, List<String>> DLDRWhiteGrayAbilities;
@@ -19,12 +17,9 @@ public class WhiteAndGrayModel {
     private Map<String, List<String>> AMLAMRWhiteGrayAbilities;
     private Map<String, List<String>> STWhiteGrayAbilities;
 
-
-
     public WhiteAndGrayModel(List<String> selectedRoleKey) {
         initSetMethod(selectedRoleKey);
     }
-
 
     public Map<String, List<String>> getGKWhiteGrayAbilities() {
         return GKWhiteGrayAbilities;
