@@ -21,6 +21,14 @@
         android:theme="@style/NormalText"/>
 
     <TextView
+        android:id="@+id/training_pgp_value_ranking_list_item"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:text="Rank"
+        android:theme="@style/NormalText"/>
+
+    <TextView
         android:id="@+id/training_color_pgp_list_item"
         android:layout_width="20dp"
         android:layout_height="20dp"

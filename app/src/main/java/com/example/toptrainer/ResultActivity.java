@@ -55,11 +55,14 @@ public class ResultActivity extends AppCompatActivity {
 
     private String trainingName[];
     private Float trainingValue[];
+    private Float trainingRankingValue[];
     private String trainingColor[];
 
     private Boolean isGK = false;
 
+    private List<String> whiteAbilities;
 
+    private final int STRIP = 60;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -74,7 +77,7 @@ public class ResultActivity extends AppCompatActivity {
         isGK = isGoalKeeper(args);
         List<String> keyOfSelectedRoles = getKeyOfSelectedRoles(args);
         RolesModel rolesModel = new RolesModel(keyOfSelectedRoles, "white");
-        List<String> whiteAbilities = rolesModel.getWhiteOrGrayMergedAbilities();
+        whiteAbilities = rolesModel.getWhiteOrGrayMergedAbilities();
 
         //Adesso abbiamo i ruoli selezionati
 
@@ -158,6 +161,7 @@ public class ResultActivity extends AppCompatActivity {
     private void getBestTraining(Map<String, String> insertedMapAbility, Boolean isGoalkeeper) {
         Map<String, List<String>> trainingMap = getTrainingList();    // ottengo tutta la lista degli allenamenti
         Map<String, Float> crescitePotenziali = new HashMap<>();     // creo struttura risultato per inserire tutte le crescite potenziali
+        Map<String, Float> ranking = new HashMap<>();     // creo struttura risultato per inserire tutte le crescite potenziali
 
         // ciclo tutti gli allenamenti
         for (Map.Entry<String,List<String>> entry : trainingMap.entrySet()) {
@@ -171,29 +175,47 @@ public class ResultActivity extends AppCompatActivity {
 
             // ciclo le abilità all'interno del training i
             List<Integer> abilitiesValue = new ArrayList<>();
-            for (int i=0; i < trainingAbilities.size() ; i++) {
+
+            int countWhitesForTraining = 0;
+            int trainingAbilitiesSize = 0;
+            for (int i = 0; i < trainingAbilities.size(); i++) {
+
                 if (insertedMapAbility.get(trainingAbilities.get(i)) != null) {
+                    trainingAbilitiesSize++;
+                    // controllo se l'abilita i-esima di un allenamento è da considerare bianca o meno. In base ai ruoli selezionati
+                    if (whiteAbilities.contains(trainingAbilities.get(i))) {
+                        countWhitesForTraining++;
+
+                    }
+
                     abilitiesValue.add(Integer.valueOf(insertedMapAbility.get(trainingAbilities.get(i))));
                 }
             }
+
+            float trainingFactor = getTrainingRankingFactor(trainingAbilitiesSize, countWhitesForTraining);
 
             // anche se la media è negativa la crescita potenziale deve essere calcolata
             // calcolo la media delle abilità che ho trovato
             float average = calculateAverage(abilitiesValue);
             if (!Float.isNaN(average)) {
                 crescitePotenziali.put(trainingName, 180 - average);
+                ranking.put(trainingName, (180 - average)+trainingFactor);
             }
-     
         }
 
-        crescitePotenziali = sortPGP(crescitePotenziali);
+        crescitePotenziali = sortPGP(new HashMap<>(crescitePotenziali));
+        ranking = sortPGP(new HashMap<>(ranking));
+        Map<String, Float> finalStructure = getFinalPGRanking(new HashMap<>(crescitePotenziali), new HashMap<>(ranking));
 
+        // TODO riportare come prima
         // questo è il punto dove settare gli array di stringhe
-        trainingName = getFormattedArrayString(crescitePotenziali.keySet().toArray(new String[0]));
-        trainingValue = getFormattedValues(crescitePotenziali.values().toArray(new Float[0]));
-        trainingColor = getHexaColorForPGP(crescitePotenziali.values().toArray(new Float[0]));
+        trainingName = getFormattedArrayString(finalStructure.keySet().toArray(new String[0]));
+        trainingValue = getFormattedValues(finalStructure.values().toArray(new Float[0]));
+        trainingRankingValue = getFormattedValues(ranking.values().toArray(new Float[0]));
+        trainingColor = getHexaColorForPGP(finalStructure.values().toArray(new Float[0]));
 
-        Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(crescitePotenziali);
+//        Map.Entry<String, Float> crescitaPotenzialeMax = getMaxValueFromList(finalStructure);
+        Map.Entry<String, Float> crescitaPotenzialeMax = finalStructure.entrySet().iterator().next();
         String trainingResultString = formatTrainingString(crescitaPotenzialeMax.getKey());
 
         //setto la crescita potenziale del migliore allenamento
@@ -204,9 +226,31 @@ public class ResultActivity extends AppCompatActivity {
         resultTraining.setText(trainingResultString);
     }
 
+    // TODO: controllare questa logica
+    private Map<String, Float> getFinalPGRanking(Map<String, Float> crescitePotenziali, Map<String, Float> ranking) {
+        Map<String, Float> result = ranking;
+        for (Map.Entry<String, Float> entry : ranking.entrySet()) {
+            result.put(entry.getKey(), crescitePotenziali.get(entry.getKey()));
+        }
+        return result;
+    }
+
+    // ritorna il coefficiente per un allenamento
+    private float getTrainingRankingFactor(int size, int countWhitesForTraining) {
+        // ottengo il coefficiente
+        // STRIP = 20 -> identifica lo scatto di fascia
+        // Moltiplico STRIP per il fattore grigie
+        int countGray = size - countWhitesForTraining;
+        int square = countGray*countGray;
+        int denominator = square + 1;
+        float factor = (float) (1.0/denominator);
+        return STRIP*factor;
+    }
+
     private Map<String, Float> sortPGP(Map<String, Float> crescitePotenziali) {
         List<String> mapKeys = new ArrayList<>(crescitePotenziali.keySet());
         List<Float> mapValues = new ArrayList<>(crescitePotenziali.values());
+
         Collections.sort(mapValues, Collections.reverseOrder());
 
         LinkedHashMap<String, Float> sortedMap = new LinkedHashMap<>();
@@ -402,7 +446,7 @@ public class ResultActivity extends AppCompatActivity {
 
         // inizializzo la list view per visualizzare la lista degli allenamenti
         pgpListView = (ListView) pgpListPopupView.findViewById(R.id.pgp_list_view);
-        PgpAdapter pgpAdapter = new PgpAdapter(this, trainingName, trainingValue, trainingColor);
+        PgpAdapter pgpAdapter = new PgpAdapter(this, trainingName, trainingValue, trainingRankingValue, trainingColor);
         pgpListView.setAdapter(pgpAdapter);
 
         popupPGPButton.setOnClickListener(new View.OnClickListener() {
@@ -692,13 +736,15 @@ public class ResultActivity extends AppCompatActivity {
         Context context;
         String trainings[];
         Float pgpValues[];
+        Float pgpRankingValues[];
         String colors[];
 
-        PgpAdapter (Context context, String trainings[], Float pgpValues[], String colors[]) {
+        PgpAdapter (Context context, String trainings[], Float pgpValues[], Float pgpRankingValues[], String colors[]) {
             super(context, R.layout.pgp_list_item, R.id.training_name_pgp_list_item, trainings);
             this.context = context;
             this.trainings = trainings;
             this.pgpValues = pgpValues;
+            this.pgpRankingValues = pgpRankingValues;
             this.colors = colors;
         }
 
@@ -709,10 +755,12 @@ public class ResultActivity extends AppCompatActivity {
             View row = layoutInflater.inflate(R.layout.pgp_list_item, parent, false);
             TextView trainingNameTextview = row.findViewById(R.id.training_name_pgp_list_item);
             TextView pgpValuesTextview = row.findViewById(R.id.training_pgp_value_list_item);
+            TextView pgpRankingValuesTextview = row.findViewById(R.id.training_pgp_value_ranking_list_item);
             TextView trainingColorTextView = row.findViewById(R.id.training_color_pgp_list_item);
 
             trainingNameTextview.setText(trainings[position]);
             pgpValuesTextview.setText(String.valueOf(pgpValues[position]));
+            pgpRankingValuesTextview.setText(String.valueOf(pgpRankingValues[position]));
             trainingColorTextView.setBackgroundColor(Color.parseColor(colors[position]));
 
             return row;
